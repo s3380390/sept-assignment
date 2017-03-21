@@ -22,8 +22,12 @@ class JSONHandler {
 			return FALSE;
 	}
 	
-	public function search($targetString){
+	public function search($filename, $targetfield, $targetString){
+		$arr = $this->getFileContents($filename);
 		
+		$val = array_search($targetString, array_column($arr,$targetfield));
+
+		return $arr[$val];
 	}
 	
 }
