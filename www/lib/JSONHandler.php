@@ -19,11 +19,18 @@ class JSONHandler {
 	}
 	
 	public function addToFile($filename, $data) {
+		
+		if (file_exists($filename)) {
+
+			$existing = $this->getFileContents($filename);
+
+			$data = array_merge($existing, $data);
+			
+		}
+		
 		$json = json_encode($data);
 		
-		if ($json)
-			file_put_contents($filename, $json, FILE_APPEND);
-		
+		file_put_contents($filename, $json);
 	}
 	
 	public function search($filename, $targetfield, $targetString){

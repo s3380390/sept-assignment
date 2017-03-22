@@ -84,7 +84,7 @@ class JSONHandlerTest extends TestCase
 		
 		$this->testarr = $this->jh->getFileContents($this->testfile);
 		
-		$this->assertEquals($this->testarr[0]['name'], 'John');
+		$this->assertEquals($this->testarr[1]['name'], 'Jenny');
 		$this->assertEquals($this->testarr[2]['name'], 'Jason');
 	}
 	
