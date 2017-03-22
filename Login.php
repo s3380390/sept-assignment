@@ -7,7 +7,7 @@
 </head>
 <body background="Login.png" style="background-repeat:no-repeat;">
 
-<form action="LoginFunction.php">
+<form action="LoginFunction.php" method="POST">
 	<input type="text" name="username" placeholder="Username"> <br> <br>
 	<input type="password" name="password" placeholder="Password"> <br><br>
 	<button type="submit">LOG IN</button>
