@@ -1,0 +1,51 @@
+<?php 
+	if(isset($_POST["btn-register"])) {
+		//code on form submit goes here
+	}
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Sign Up</title>
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+	</head>
+	<body>
+		<div id="header">
+		</div>
+		<form action ='' method='post' >
+			<div class="container">
+				<h1> Sign Up </h1>
+				<div class="div50">
+					<label>First Name</label>
+					<input type='text' name='firstname' placeholder='John'  value='' pattern="[A-Za-z\-' ]{2,25}" required/></p>
+				</div>
+				<div class="div50">
+					<label>Last Name</label>
+					<input type='text' name='lastname' placeholder='Smith' pattern="[A-Za-z\-' ]{2,25}" value=''required/></p>
+				</div>
+				<hr />
+					<label>Username</label>
+					<input type='text' name='username' placeholder='johnsmith1' value='' required/></p>
+				<div class="div50">
+					<label>Password</label>
+					<input type='password' name='password1' required/></p>
+				</div>
+				<div class="div50">
+					<label>Confirm Password</label>
+					<input type = 'password' name='password2' required/></p>
+				</div>
+				<hr />
+				<label>Contact Number</label>
+				<input type='text' name='contact' placeholder='0412345678' value='' pattern="[0-9\-\+ ]{10,15}" required/></p>
+				<label>Address</label>
+				<input type='text' name='address' value='' required/></p>
+				<button type='submit' name='btn-register'>Submit</button><br />
+				<span style="margin-top:20px;">Already registered? - <a href="login.html">Sign In</a></span>
+			</div>
+		</form>
+		<div id="footer">
+		</div>
+	</body>
+</html>
+
