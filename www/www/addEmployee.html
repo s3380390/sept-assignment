@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Add Employee</title>
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+	</head>
+	<body>
+		<div id="header">
+		</div>
+		<form action ='' method='post' >
+			<div class="container">
+				<h1> Add Employee </h1>
+				<div class="div50">
+					<label>First Name</label>
+					<input type='text' name='firstname' placeholder='John'  value='' pattern="[A-Za-z\-' ]{2,25}" required/></p>
+				</div>
+				<div class="div50">
+					<label>Last Name</label>
+					<input type='text' name='lastname' placeholder='Smith' pattern="[A-Za-z\-' ]{2,25}" value=''required/></p>
+				</div>				
+				<label>Gender</label>
+				<input type="radio" name="gender" value="male" checked style> Male
+				<input type="radio" name="gender" value="female"> Female
+				<input type="radio" name="gender" value="other"> Other
+				<hr />
+				<label>Select Working Date & Time</label>
+				<input type="datetime-local" name="working-day">
+				<hr />
+				<label>Contact Number</label>
+				<input type='text' name='contact' placeholder='0412345678' value='' pattern="[0-9\-\+ ]{10,15}" required/></p>
+				<label>Address</label>
+				<input type='text' name='address' value='' required/></p>
+				<button type='submit' name='add-employee'>Add</button><br />
+				<span style="margin-top:20px;">Already registered? - <a href="login.html">Sign In</a></span>
+			</div>
+		</form>
+		<div id="footer">
+		</div>
+	</body>
+</html>
