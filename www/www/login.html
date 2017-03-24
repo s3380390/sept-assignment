@@ -1,0 +1,36 @@
+<?php 
+	if(isset($_POST["btn-login"])) {
+		//code on form submit goes here
+	}
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Login Page </title>
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+	</head>
+	<body>
+		<div id="header">
+		</div>
+		<form method="post" action="">
+			<div class="container">
+				<h1>Login</h1>
+				<div class="div50">
+					<label>Username</label>
+					<input type="text" name="username" placeholder="Username" required>
+				</div>
+				<div class="div50">
+					<label>Password</label>
+					<input type="password" name="password" placeholder="Password" required>
+				</div>
+				<div class="clearfix"></div>
+				<button type="submit" name ="btn-login">Login</button><br />
+				<span>New user? - <a href="register.html">Register</a></span>
+			</div>
+		</form>
+		<div id="footer">
+		</div>
+	</body>
+</html>
+

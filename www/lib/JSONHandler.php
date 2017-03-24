@@ -39,8 +39,8 @@ class JSONHandler {
 		#array search which returns the index of the value in which was found
 		$val = array_search($targetString, array_column($arr,$targetfield));
 		
-		if (!$val)
-			return NULL;
+		if ($val === false)
+			return null;
 		
 		return $arr[$val];
 	}
