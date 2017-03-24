@@ -11,10 +11,11 @@ class LoginFunctions{
 		if (!empty($user = $j->search($customersdb, "username", $username))){
 			if ($user["password"] == $password){
 				echo "Welcome!";
-				return;
+				return true;
 			}
 		}
 		echo "Invalid Username or Password!";
+		return false;
 	}
 }
 
