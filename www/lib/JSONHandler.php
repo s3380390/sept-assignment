@@ -20,10 +20,10 @@ class JSONHandler {
 	
 	public function addToFile($filename, $data) {
 		
-		if (file_exists($filename)) {
-			
-			if (!$data[0])
+		if (!$data[0])
 				$data = array((0) => $data);
+		
+		if (file_exists($filename)) {
 
 			$existing = $this->getFileContents($filename);
 
