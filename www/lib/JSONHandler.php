@@ -21,6 +21,9 @@ class JSONHandler {
 	public function addToFile($filename, $data) {
 		
 		if (file_exists($filename)) {
+			
+			if (!$data[0])
+				$data = array((0) => $data);
 
 			$existing = $this->getFileContents($filename);
 
@@ -28,7 +31,7 @@ class JSONHandler {
 			
 		}
 		
-		$json = json_encode($data);
+		$json = json_encode($data, JSON_PRETTY_PRINT);
 		
 		file_put_contents($filename, $json);
 	}

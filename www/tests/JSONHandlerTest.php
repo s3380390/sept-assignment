@@ -69,7 +69,6 @@ class JSONHandlerTest extends TestCase
 		$incorrecttest = $this->jh->getFileContents('incorrect.json');
 	}
 	
-	#Not passing append, needs another function, corrupts json
 	public function testAppend()
 	{
 		$this->testarr = array(
@@ -84,8 +83,25 @@ class JSONHandlerTest extends TestCase
 		
 		$this->testarr = $this->jh->getFileContents($this->testfile);
 		
+		$this->assertEquals($this->testarr[0]['name'], 'John');
 		$this->assertEquals($this->testarr[1]['name'], 'Jenny');
 		$this->assertEquals($this->testarr[2]['name'], 'Jason');
+		
+		$this->testarr = array(
+			('name') => 'Bill',
+			('surname') => 'Red'
+		);
+		
+		$this->jh->addToFile( $this->testfile, $this->testarr);
+		
+		$this->testarr = $this->jh->getFileContents($this->testfile);
+		
+		$this->assertEquals($this->testarr[0]['name'], 'John');
+		$this->assertEquals($this->testarr[1]['name'], 'Jenny');
+		$this->assertEquals($this->testarr[2]['name'], 'Jason');
+		$this->assertEquals($this->testarr[3]['name'], 'Bill');
+		
+		
 	}
 	
 	public function testSearch()
