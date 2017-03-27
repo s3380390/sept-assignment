@@ -1,0 +1,26 @@
+[
+  {
+    "username": "securoco",
+    "password": "stRF4%Q!",
+	"businessname": "SecuroCo",
+	"ownername": "Damien Steel",
+    "address": "123 Fake St, Fake, 3000",
+    "phoneno": "0400000000"
+  },
+  {
+    "username": "cmprot",
+    "password": "DV%tL2HP",
+	"businessname": "Centre Mass Protection",
+	"ownername": "Michael Rivera",
+    "address": "123 Fake St, Fake, 3000",
+    "phoneno": "0400000000"
+  },
+  {
+    "username": "thetoughguys",
+    "password": "KDZ5&_dp",
+	"businessname": "The Tough Guys",
+	"ownername": "Tommy Garrett",
+    "address": "123 Fake St, Fake, 3000",
+    "phoneno": "0400000000"
+  }
+]
