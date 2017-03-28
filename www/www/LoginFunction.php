@@ -1,20 +1,27 @@
 <?php
-
-include("../lib/JSONHandler.php");
+session_start();
+include_once("../lib/JSONHandler.php");
 	
 	$l = new LoginFunctions;
-	$l->login($_POST["username"], $_POST["password"]);
+	if($l->login($_POST["username"], $_POST["password"])){
+		header("Location: CustomerHome.html");
+	} else {
+		header("Location: login.html");
+	}
 class LoginFunctions{
 	public function login($username, $password){
 		$j = new JSONHandler;
 		$customersdb = "../database/customers.json";
 		if (!empty($user = $j->search($customersdb, "username", $username))){
 			if ($user["password"] == $password){
-				echo "Welcome!";
+				$_SESSION["UserName"] = $user["username"];
+				$_SESSION["Password"] = $user["password"];
+				$_SESSION["Name"] = $user["name"];
+				$_SESSION["Address"] = $user["address"];
+				$_SESSION["Phone"] = $user["phoneno"];
 				return true;
 			}
 		}
-		echo "Invalid Username or Password!";
 		return false;
 	}
 }
