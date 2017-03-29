@@ -1,0 +1,30 @@
+[
+    {
+        "name": " ",
+        "gender": null,
+        "workingDay": null,
+        "address": null,
+        "phoneno": null
+    },
+    {
+        "name": "Suzy Conner",
+        "gender": "female",
+        "workingDay": "2017-03-30T08:00",
+        "address": "01234567890",
+        "phoneno": "123 Where, ever, 3210"
+    },
+    {
+        "name": "Andy Pickles",
+        "gender": "male",
+        "workingDay": "2017-03-30T09:00",
+        "address": "01298767890",
+        "phoneno": "123 Somewhere, else, 3210"
+    },
+    {
+        "name": "Anonymous Person",
+        "gender": "other",
+        "workingDay": "2017-04-01T14:00",
+        "address": "0123874390",
+        "phoneno": "123 Nowhere, Out there, 3210"
+    }
+]
