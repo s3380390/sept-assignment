@@ -8,49 +8,70 @@ class LogInTest extends TestCase
   public function test()
   {
     $l = New LoginFunctions;
-    $success = $l->login('jbrown', 'ap6&svTT');
+    $success = $l->login('jbrown', 'ap6&svTT', 'customer');
     $this->assertEquals($success, true);
   }
 
   public function test2()
   {
     $l = New LoginFunctions;
-    $success = $l->login('admin', 'fake');
+    $success = $l->login('admin', 'fake', 'customer');
     $this->assertEquals($success, false);
   }
 
   public function test3()
   {
     $l = New LoginFunctions;
-    $success = $l->login('asmith', '9gH*4b%!');
+    $success = $l->login('asmith', '9gH*4b%!', 'customer');
     $this->assertEquals($success, true);
   }
 
   public function test4()
   {
     $l = New LoginFunctions;
-    $success = $l->login('twilson', 'ap6&svTT');
+    $success = $l->login('twilson', 'ap6&svTT', 'customer');
     $this->assertEquals($success, false);
   }
 
   public function test5()
   {
     $l = New LoginFunctions;
-    $success = $l->login('twilson', 'L*9HmbaS');
+    $success = $l->login('twilson', 'L*9HmbaS', 'customer');
     $this->assertEquals($success, true);
   }
 
   public function test6()
   {
     $l = New LoginFunctions;
-    $success = $l->login('admin', 'L*9HmbaS');
+    $success = $l->login('admin', 'L*9HmbaS', 'customer');
     $this->assertEquals($success, false);
   }
 
   public function test7()
   {
     $l = New LoginFunctions;
-    $success = $l->login('jbrown', 'L*9HmbaS');
+    $success = $l->login('jbrown', 'L*9HmbaS', 'customer');
+    $this->assertEquals($success, false);
+  }
+
+  public function test8()
+  {
+    $l = New LoginFunctions;
+    $success = $l->login('twilson', 'L*9HmbaS', 'owner');
+    $this->assertEquals($success, false);
+  }
+
+  public function test9()
+  {
+    $l = New LoginFunctions;
+    $success = $l->login('securoco', 'stRF4%Q!', 'owner');
+    $this->assertEquals($success, true);
+  }
+
+  public function test10()
+  {
+    $l = New LoginFunctions;
+    $success = $l->login('securoco', 'stRF4%Q!', 'customer');
     $this->assertEquals($success, false);
   }
 }
