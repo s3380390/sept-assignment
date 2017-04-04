@@ -1,5 +1,5 @@
 <?php 
-	
+	session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,9 +11,18 @@
 	<body>
 		<div id="header">
 		</div>
-		<form action ='SignUpFunction.php' method='post' >
+		<form action ='SignUpCheck.php' method='post' >
 			<div class="container">
 				<h1> Sign Up </h1>
+				<?php 
+				if (isset($_SESSION["format"])){
+					echo "<p>Wrong password format<p>";
+				}
+				if (isset($_SESSION["same"])){
+					echo "<p>Confirm password is not the same as password<p>";
+				}
+				session_destroy();
+				?>
 				<div class="div50">
 					<label>First Name</label>
 					<input type='text' name='firstname' placeholder='John'  value='' pattern="[A-Za-z\-' ]{2,25}" required/></p>
