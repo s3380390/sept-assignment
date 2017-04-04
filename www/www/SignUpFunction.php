@@ -1,12 +1,13 @@
 <?php
-
-include("../lib/JSONHandler.php");
+	session_start();
+	include("../lib/JSONHandler.php");
 	
 	$l = new SignupFunctions;
 	if($l->signup($_POST["firstname"], $_POST["lastname"], $_POST["username"], $_POST["password1"], 
 				$_POST["password2"], $_POST["contact"], $_POST["address"])==true){
 		header("Location: SignUpConfirmation.html");		
 	} else {
+		$_SESSION["sameUserName"] = true;
 		header("Location: register.html");
 	}
 	

@@ -6,7 +6,7 @@
 			$_SESSION['pass']=true;
 			header("Location: SignUpFunction.php");
 		} else {
-			$_SESSION["same"] = false;
+			$_SESSION["samePwd"] = false;
 			header("Location: register.html");
 		}
 	} else {

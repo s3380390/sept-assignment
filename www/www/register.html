@@ -18,8 +18,11 @@
 				if (isset($_SESSION["format"])){
 					echo "<p>Wrong password format<p>";
 				}
-				if (isset($_SESSION["same"])){
+				if (isset($_SESSION["samePwd"])){
 					echo "<p>Confirm password is not the same as password<p>";
+				}
+				if (isset($_SESSION["sameUserName"])){
+					echo "<p>User name already exists<p>";
 				}
 				session_destroy();
 				?>
