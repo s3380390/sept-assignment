@@ -143,128 +143,128 @@
         "workingtimes": {
             "monday": {
                 "morning": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "midday": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "afternoon": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "night": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 }
             },
             "tuesday": {
                 "morning": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "midday": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "afternoon": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "night": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 }
             },
             "wednesday": {
                 "morning": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "midday": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "afternoon": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "night": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 }
             },
             "thursday": {
                 "morning": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "midday": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "afternoon": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "night": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 }
             },
             "friday": {
                 "morning": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "midday": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "afternoon": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "night": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 }
             },
             "saruday": {
                 "morning": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "midday": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "afternoon": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "night": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 }
             },
             "sunday": {
                 "morning": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "midday": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "afternoon": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "night": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 }
             }
         }
@@ -278,128 +278,398 @@
         "workingtimes": {
             "monday": {
                 "morning": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "midday": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "afternoon": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "night": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 }
             },
             "tuesday": {
                 "morning": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "midday": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "afternoon": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "night": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 }
             },
             "wednesday": {
                 "morning": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "midday": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "afternoon": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "night": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 }
             },
             "thursday": {
                 "morning": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "midday": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "afternoon": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "night": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 }
             },
             "friday": {
                 "morning": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "midday": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "afternoon": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "night": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 }
             },
             "saruday": {
                 "morning": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "midday": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "afternoon": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "night": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 }
             },
             "sunday": {
                 "morning": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "midday": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "afternoon": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
                 },
                 "night": {
-                    "working": "false",
-                    "booked": "false"
+                    "working": false,
+                    "booked": false
+                }
+            }
+        }
+    },
+    {
+		"company": "testowner",
+        "name": "Mike Rock",
+        "gender": null,
+        "address": null,
+        "phoneno": null,
+        "workingtimes": {
+            "monday": {
+                "morning": {
+                    "working": true,
+                    "booked": true
+                },
+                "midday": {
+                    "working": true,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": false,
+                    "booked": false
+                },
+                "night": {
+                    "working": false,
+                    "booked": false
+                }
+            },
+            "tuesday": {
+                "morning": {
+                    "working": false,
+                    "booked": false
+                },
+                "midday": {
+                    "working": false,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": true,
+                    "booked": false
+                },
+                "night": {
+                    "working": true,
+                    "booked": true
+                }
+            },
+            "wednesday": {
+                "morning": {
+                    "working": true,
+                    "booked": false
+                },
+                "midday": {
+                    "working": true,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": true,
+                    "booked": false
+                },
+                "night": {
+                    "working": true,
+                    "booked": false
+                }
+            },
+            "thursday": {
+                "morning": {
+                    "working": true,
+                    "booked": false
+                },
+                "midday": {
+                    "working": true,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": true,
+                    "booked": false
+                },
+                "night": {
+                    "working": true,
+                    "booked": false
+                }
+            },
+            "friday": {
+                "morning": {
+                    "working": true,
+                    "booked": false
+                },
+                "midday": {
+                    "working": true,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": true,
+                    "booked": false
+                },
+                "night": {
+                    "working": true,
+                    "booked": false
+                }
+            },
+            "saturday": {
+                "morning": {
+                    "working": true,
+                    "booked": false
+                },
+                "midday": {
+                    "working": true,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": true,
+                    "booked": false
+                },
+                "night": {
+                    "working": true,
+                    "booked": false
+                }
+            },
+            "sunday": {
+                "morning": {
+                    "working": true,
+                    "booked": false
+                },
+                "midday": {
+                    "working": true,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": true,
+                    "booked": false
+                },
+                "night": {
+                    "working": true,
+                    "booked": false
+                }
+            }
+        }
+    },
+    {
+		"company": "testowner",
+        "name": "Daniel Random",
+        "gender": null,
+        "address": null,
+        "phoneno": null,
+        "workingtimes": {
+            "monday": {
+                "morning": {
+                    "working": false,
+                    "booked": false
+                },
+                "midday": {
+                    "working": false,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": true,
+                    "booked": false
+                },
+                "night": {
+                    "working": true,
+                    "booked": true
+                }
+            },
+            "tuesday": {
+                "morning": {
+                    "working": true,
+                    "booked": true
+                },
+                "midday": {
+                    "working": true,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": false,
+                    "booked": false
+                },
+                "night": {
+                    "working": false,
+                    "booked": false
+                }
+            },
+            "wednesday": {
+                "morning": {
+                    "working": true,
+                    "booked": false
+                },
+                "midday": {
+                    "working": true,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": true,
+                    "booked": false
+                },
+                "night": {
+                    "working": true,
+                    "booked": false
+                }
+            },
+            "thursday": {
+                "morning": {
+                    "working": true,
+                    "booked": false
+                },
+                "midday": {
+                    "working": true,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": true,
+                    "booked": false
+                },
+                "night": {
+                    "working": true,
+                    "booked": false
+                }
+            },
+            "friday": {
+                "morning": {
+                    "working": true,
+                    "booked": false
+                },
+                "midday": {
+                    "working": true,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": true,
+                    "booked": false
+                },
+                "night": {
+                    "working": true,
+                    "booked": false
+                }
+            },
+            "saturday": {
+                "morning": {
+                    "working": true,
+                    "booked": false
+                },
+                "midday": {
+                    "working": true,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": true,
+                    "booked": false
+                },
+                "night": {
+                    "working": true,
+                    "booked": false
+                }
+            },
+            "sunday": {
+                "morning": {
+                    "working": true,
+                    "booked": false
+                },
+                "midday": {
+                    "working": true,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": true,
+                    "booked": false
+                },
+                "night": {
+                    "working": true,
+                    "booked": false
                 }
             }
         }
