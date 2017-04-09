@@ -407,9 +407,9 @@
     {
 		"company": "testowner",
         "name": "Mike Rock",
-        "gender": null,
-        "address": null,
-        "phoneno": null,
+        "gender": "male",
+        "address": "address test",
+        "phoneno": "phone test",
         "workingtimes": {
             "monday": {
                 "morning": {
@@ -542,9 +542,9 @@
     {
 		"company": "testowner",
         "name": "Daniel Random",
-        "gender": null,
-        "address": null,
-        "phoneno": null,
+        "gender": "male",
+        "address": "test address",
+        "phoneno": "test phone",
         "workingtimes": {
             "monday": {
                 "morning": {
