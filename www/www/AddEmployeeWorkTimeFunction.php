@@ -49,7 +49,7 @@ include("../lib/JSONHandler.php");
 class AddEmployeeWorkTimeFunctions{
 	public function addWorkTimes($name, $inputTime){
 		$j = new JSONHandler;
-		$worktimedb = "../database/employeeWorkTime.json";
+		$worktimedb = "../database/employees.json";
 		$edited = false;
 		if (!empty($viewArray = $j->getFileContents($worktimedb))){
 			foreach ($viewArray as $e_key => $employee){
