@@ -42,6 +42,14 @@ include("../lib/JSONHandler.php");
 	if($l->addWorkTimes($_POST["name"], $inputTime))
 	{	
 		header("Location: addWorkTimeConfirmation.html");
+	if($l->addWorkTimes($_POST["name"], 
+					$_POST["monMorning"], $_POST["monNoon"], $_POST["monAfternoon"], $_POST["monEvening"],
+					$_POST["tueMorning"], $_POST["tueNoon"], $_POST["tueAfternoon"], $_POST["tueEvening"],
+					$_POST["wedMorning"], $_POST["wedNoon"], $_POST["wedAfternoon"], $_POST["wedEvening"],
+					$_POST["thuMorning"], $_POST["thuNoon"], $_POST["thuAfternoon"], $_POST["thuEvening"],
+					$_POST["friMorning"], $_POST["friNoon"], $_POST["friAfternoon"], $_POST["friEvening"]))
+	{
+		header("Location: ");		
 	} else {
 		header("Location: addEmployeeWorkTime.html");
 	}
