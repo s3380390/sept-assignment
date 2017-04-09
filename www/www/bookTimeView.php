@@ -1,7 +1,7 @@
 <?php
 include_once("../lib/JSONHandler.php");
 	
-$db = "../database/employeeWorkTime.json";
+$db = "../database/employees.json";
 $v = new View;
 if (!$v->viewFunction($db)){
 	echo "<p>"
