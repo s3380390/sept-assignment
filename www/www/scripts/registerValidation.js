@@ -103,8 +103,6 @@ function validateUsername(){
 	// cant get bads working, look at it later
 	// results[2] = validateRegexGeneral(regxHasBad, input, " bad found", "Invalid characters found")
 	
-	if 
-	
 	return validateArrayPass(results);
 }
 
