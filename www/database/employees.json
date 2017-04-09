@@ -1,30 +1,407 @@
 [
     {
-        "name": " ",
-        "gender": null,
-        "workingDay": null,
-        "address": null,
-        "phoneno": null
-    },
-    {
+	"company": "securoco"
         "name": "Suzy Conner",
         "gender": "female",
-        "workingDay": "2017-03-30T08:00",
-        "address": "01234567890",
-        "phoneno": "123 Where, ever, 3210"
+        "address": "123 Where, ever, 3210",
+        "phoneno": "01234567890"
+        "workingtimes": {
+            "monday": {
+                "morning": {
+                    "working": true,
+                    "booked": false
+                },
+                "midday": {
+                    "working": true,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": true,
+                    "booked": false
+                },
+                "night": {
+                    "working": true,
+                    "booked": false
+                }
+            },
+            "tuesday": {
+                "morning": {
+                    "working": true,
+                    "booked": false
+                },
+                "midday": {
+                    "working": true,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": true,
+                    "booked": false
+                },
+                "night": {
+                    "working": true,
+                    "booked": false
+                }
+            },
+            "wednesday": {
+                "morning": {
+                    "working": true,
+                    "booked": false
+                },
+                "midday": {
+                    "working": true,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": true,
+                    "booked": false
+                },
+                "night": {
+                    "working": true,
+                    "booked": false
+                }
+            },
+            "thursday": {
+                "morning": {
+                    "working": true,
+                    "booked": false
+                },
+                "midday": {
+                    "working": true,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": true,
+                    "booked": false
+                },
+                "night": {
+                    "working": true,
+                    "booked": false
+                }
+            },
+            "friday": {
+                "morning": {
+                    "working": true,
+                    "booked": false
+                },
+                "midday": {
+                    "working": true,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": true,
+                    "booked": false
+                },
+                "night": {
+                    "working": true,
+                    "booked": false
+                }
+            },
+            "saturday": {
+                "morning": {
+                    "working": true,
+                    "booked": false
+                },
+                "midday": {
+                    "working": true,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": true,
+                    "booked": false
+                },
+                "night": {
+                    "working": true,
+                    "booked": false
+                }
+            },
+            "sunday": {
+                "morning": {
+                    "working": true,
+                    "booked": false
+                },
+                "midday": {
+                    "working": true,
+                    "booked": false
+                },
+                "afternoon": {
+                    "working": true,
+                    "booked": false
+                },
+                "night": {
+                    "working": true,
+                    "booked": false
+                }
+            }
+        }
     },
     {
+        "company": "cmprot",
+        "name": "Lizzy Pioneer",
+        "gender": "female",
+        "address": "123 Somewhere, far, 3210",
+        "phoneno": "01238754890",
+        "workingtimes": {
+            "monday": {
+                "morning": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "midday": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "afternoon": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "night": {
+                    "working": "false",
+                    "booked": "false"
+                }
+            },
+            "tuesday": {
+                "morning": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "midday": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "afternoon": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "night": {
+                    "working": "false",
+                    "booked": "false"
+                }
+            },
+            "wednesday": {
+                "morning": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "midday": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "afternoon": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "night": {
+                    "working": "false",
+                    "booked": "false"
+                }
+            },
+            "thursday": {
+                "morning": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "midday": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "afternoon": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "night": {
+                    "working": "false",
+                    "booked": "false"
+                }
+            },
+            "friday": {
+                "morning": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "midday": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "afternoon": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "night": {
+                    "working": "false",
+                    "booked": "false"
+                }
+            },
+            "saruday": {
+                "morning": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "midday": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "afternoon": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "night": {
+                    "working": "false",
+                    "booked": "false"
+                }
+            },
+            "sunday": {
+                "morning": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "midday": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "afternoon": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "night": {
+                    "working": "false",
+                    "booked": "false"
+                }
+            }
+        }
+    },
+    {
+        "company": "thetoughguys",
         "name": "Andy Pickles",
         "gender": "male",
-        "workingDay": "2017-03-30T09:00",
-        "address": "01298767890",
-        "phoneno": "123 Somewhere, else, 3210"
-    },
-    {
-        "name": "Anonymous Person",
-        "gender": "other",
-        "workingDay": "2017-04-01T14:00",
-        "address": "0123874390",
-        "phoneno": "123 Nowhere, Out there, 3210"
+        "address": "123 Somewhere, else, 3210",
+        "phoneno": "01298767890",
+        "workingtimes": {
+            "monday": {
+                "morning": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "midday": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "afternoon": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "night": {
+                    "working": "false",
+                    "booked": "false"
+                }
+            },
+            "tuesday": {
+                "morning": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "midday": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "afternoon": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "night": {
+                    "working": "false",
+                    "booked": "false"
+                }
+            },
+            "wednesday": {
+                "morning": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "midday": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "afternoon": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "night": {
+                    "working": "false",
+                    "booked": "false"
+                }
+            },
+            "thursday": {
+                "morning": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "midday": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "afternoon": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "night": {
+                    "working": "false",
+                    "booked": "false"
+                }
+            },
+            "friday": {
+                "morning": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "midday": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "afternoon": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "night": {
+                    "working": "false",
+                    "booked": "false"
+                }
+            },
+            "saruday": {
+                "morning": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "midday": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "afternoon": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "night": {
+                    "working": "false",
+                    "booked": "false"
+                }
+            },
+            "sunday": {
+                "morning": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "midday": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "afternoon": {
+                    "working": "false",
+                    "booked": "false"
+                },
+                "night": {
+                    "working": "false",
+                    "booked": "false"
+                }
+            }
+        }
     }
 ]
