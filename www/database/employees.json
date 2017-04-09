@@ -1,10 +1,10 @@
 [
     {
-	"company": "securoco"
+	    "company": "securoco",
         "name": "Suzy Conner",
         "gender": "female",
         "address": "123 Where, ever, 3210",
-        "phoneno": "01234567890"
+        "phoneno": "01234567890",
         "workingtimes": {
             "monday": {
                 "morning": {
