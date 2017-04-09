@@ -3,6 +3,11 @@ body {
 	background-color: #b2b2b2;
 }
 
+table, th, td {
+	border: 3px solid black;
+	border-collapse: collapse;
+}
+
 .employeegroup {
 	display: none;
 }
