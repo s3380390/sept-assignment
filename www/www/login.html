@@ -9,6 +9,8 @@
 		<meta charset="UTF-8">
 		<title>Login Page </title>
 		<link rel="stylesheet" type="text/css" href="styles/style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<script src="scripts/loginValidation.js"></script>
 	</head>
 	<body>
 		<div id="header">
@@ -18,11 +20,11 @@
 				<h1>Login</h1>
 				<div class="div50">
 					<label>Username</label>
-					<input type="text" name="username" placeholder="Username" required>
+					<input type="text" name="username" placeholder="Username">
 				</div>
 				<div class="div50">
 					<label>Password</label>
-					<input type="password" name="password" placeholder="Password" required>
+					<input type="password" name="password" placeholder="Password">
 				</div>
 				<div class="clearfix"></div>
 				<button type="submit" name ="btn-login">Login</button><br />
@@ -33,4 +35,14 @@
 		</div>
 	</body>
 </html>
+<script>
+	$(document).ready(function(){
+		$("form").submit(function(){
+			if (validateForm())
+				return true;
+			else
+				return false;
+		});
+	});
+</script>
 

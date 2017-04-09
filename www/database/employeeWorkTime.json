@@ -1,0 +1,25 @@
+[
+    {
+        "name": "Suzy Conner",
+        "monMorning": "true",
+        "monNoon": "false",
+        "monAfternoon": "false",
+        "monEvening": "true",
+        "tueMorning": "false",
+        "tueNoon": "false",
+        "tueAfternoon": "false",
+        "tueEvening": "true",
+        "wedMorning": "true",
+        "wedNoon": "true",
+        "wedAfternoon": "false",
+        "wedEvening": "false",
+        "thuMorning": "true",
+        "thuNoon": "false",
+        "thuAfternoon": "true",
+        "thuEvening": "true",
+        "friMorning": "false",
+        "friNoon": "true",
+        "friAfternoon": "false",
+        "friEvening": "true"
+    }
+]

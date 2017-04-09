@@ -1,5 +1,12 @@
 [
   {
+    "username": "testuser",
+    "password": "password",
+	"name": "User Testington",
+    "address": "123 Fake St, Fake, 3000",
+    "phoneno": "0400000000"
+  },
+  {
     "username": "jbrown",
     "password": "ap6&svTT",
 	"name": "Jarrod Brown",
