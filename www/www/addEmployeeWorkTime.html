@@ -1,3 +1,6 @@
+<?php
+	session_start()
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,134 +14,98 @@
 		<form action ='AddEmployeeWorkTimeFunction.php' method='post' >
 			<div class="container">
 				<h1> Add Employee Working Times</h1>
-				<label>Please Enter Employee's Full Name</label>
-				<input type='text' name='name' placeholder='John Smith'  value='' pattern="[A-Za-z\-' ]{2,25}" required/></p>	
+				<label>Please Choose Employee's Full Name</label>
+				<select required><?php include_once('listEmployee.php') ?></select>	
 				<hr />				
 				<h1> Please choose Employee Work Times.</h1>
 				<h2>Monday</h2>
 				<label>Morning (10:00am - 12:00pm)</label>
-				<input type="radio" name="monMorning" value=false checked style> Off Day
-				<input type="radio" name="monMorning" value=true> Working
+				<input type="radio" name="monMorning" value=bool(false) checked style> Off Day
+				<input type="radio" name="monMorning" value=bool(true)> Working
 				<br>
 				<label>Noon (12:00pm - 2:00pm)</label>
-				<input type="radio" name="monNoon" value=false checked style> Off Day
-				<input type="radio" name="monNoon" value=true> Working
+				<input type="radio" name="monNoon" value=bool(false) checked style> Off Day
+				<input type="radio" name="monNoon" value=bool(true)> Working
 				<br>
 				<label>Afternoon (2:00pm - 4:00pm)</label>
-				<input type="radio" name="monAfternoon" value=false checked style> Off Day
-				<input type="radio" name="monAfternoon" value=true> Working
+				<input type="radio" name="monAfternoon" value=bool(false) checked style> Off Day
+				<input type="radio" name="monAfternoon" value=bool(true)> Working
 				<br>
 				<label>Evening (4:00pm - 6:00pm)</label>
-				<input type="radio" name="monEvening" value=false checked style> Off Day
-				<input type="radio" name="monEvening" value=true> Working
+				<input type="radio" name="monEvening" value=bool(false) checked style> Off Day
+				<input type="radio" name="monEvening" value=bool(true)> Working
 				<br><br>
 				
 				<h2>Tuesday</h2>
 				<label>Morning (10:00am - 12:00pm)</label>
-				<input type="radio" name="tueMorning" value=false checked style> Off Day
-				<input type="radio" name="tueMorning" value=true> Working
+				<input type="radio" name="tueMorning" value=bool(false) checked style> Off Day
+				<input type="radio" name="tueMorning" value=bool(true)> Working
 				<br>
 				<label>Noon (12:00pm - 2:00pm)</label>
-				<input type="radio" name="tueNoon" value=false checked style> Off Day
-				<input type="radio" name="tueNoon" value=true> Working
+				<input type="radio" name="tueNoon" value=bool(false) checked style> Off Day
+				<input type="radio" name="tueNoon" value=bool(true)> Working
 				<br>
 				<label>Afternoon (2:00pm - 4:00pm)</label>
-				<input type="radio" name="tueAfternoon" value=false checked style> Off Day
-				<input type="radio" name="tueAfternoon" value=true> Working
+				<input type="radio" name="tueAfternoon" value=bool(false) checked style> Off Day
+				<input type="radio" name="tueAfternoon" value=bool(true)> Working
 				<br>
 				<label>Evening (4:00pm - 6:00pm)</label>
-				<input type="radio" name="tueEvening" value=false checked style> Off Day
-				<input type="radio" name="tueEvening" value=true> Working
+				<input type="radio" name="tueEvening" value=bool(false) checked style> Off Day
+				<input type="radio" name="tueEvening" value=bool(true)> Working
 				<br><br>
 				
 				<h2>Wednesday</h2>
 				<label>Morning (10:00am - 12:00pm)</label>
-				<input type="radio" name="wedMorning" value=false checked style> Off Day
-				<input type="radio" name="wedMorning" value=true> Working
+				<input type="radio" name="wedMorning" value=bool(false) checked style> Off Day
+				<input type="radio" name="wedMorning" value=bool(true)> Working
 				<br>
 				<label>Noon (12:00pm - 2:00pm)</label>
-				<input type="radio" name="wedNoon" value=false checked style> Off Day
-				<input type="radio" name="wedNoon" value=true> Working
+				<input type="radio" name="wedNoon" value=bool(false) checked style> Off Day
+				<input type="radio" name="wedNoon" value=bool(true)> Working
 				<br>
 				<label>Afternoon (2:00pm - 4:00pm)</label>
-				<input type="radio" name="wedAfternoon" value=false checked style> Off Day
-				<input type="radio" name="wedAfternoon" value=true> Working
+				<input type="radio" name="wedAfternoon" value=bool(false) checked style> Off Day
+				<input type="radio" name="wedAfternoon" value=bool(true)> Working
 				<br>
 				<label>Evening (4:00pm - 6:00pm)</label>
-				<input type="radio" name="wedEvening" value=false checked style> Off Day
-				<input type="radio" name="wedEvening" value=true> Working
+				<input type="radio" name="wedEvening" value=bool(false) checked style> Off Day
+				<input type="radio" name="wedEvening" value=bool(true)> Working
 				<br><br>
 				
 				<h2>Thursday</h2>
 				<label>Morning (10:00am - 12:00pm)</label>
-				<input type="radio" name="thuMorning" value=false checked style> Off Day
-				<input type="radio" name="thuMorning" value=true> Working
+				<input type="radio" name="thuMorning" value=bool(false) checked style> Off Day
+				<input type="radio" name="thuMorning" value=bool(true)> Working
 				<br>
 				<label>Noon (12:00pm - 2:00pm)</label>
-				<input type="radio" name="thuNoon" value=false checked style> Off Day
-				<input type="radio" name="thuNoon" value=true> Working
+				<input type="radio" name="thuNoon" value=bool(false) checked style> Off Day
+				<input type="radio" name="thuNoon" value=bool(true)> Working
 				<br>
 				<label>Afternoon (2:00pm - 4:00pm)</label>
-				<input type="radio" name="thuAfternoon" value=false checked style> Off Day
-				<input type="radio" name="thuAfternoon" value=true> Working
+				<input type="radio" name="thuAfternoon" value=bool(false) checked style> Off Day
+				<input type="radio" name="thuAfternoon" value=bool(true)> Working
 				<br>
 				<label>Evening (4:00pm - 6:00pm)</label>
-				<input type="radio" name="thuEvening" value=false checked style> Off Day
-				<input type="radio" name="thuEvening" value=true> Working
+				<input type="radio" name="thuEvening" value=bool(false) checked style> Off Day
+				<input type="radio" name="thuEvening" value=bool(true)> Working
 				<br><br>
 				
 				<h2>Friday</h2>
 				<label>Morning (10:00am - 12:00pm)</label>
-				<input type="radio" name="friMorning" value=false checked style> Off Day
-				<input type="radio" name="friMorning" value=true> Working
+				<input type="radio" name="friMorning" value=bool(false) checked style> Off Day
+				<input type="radio" name="friMorning" value=bool(true)> Working
 				<br>
 				<label>Noon (12:00pm - 2:00pm)</label>
-				<input type="radio" name="friNoon" value=false checked style> Off Day
-				<input type="radio" name="friNoon" value=true> Working
+				<input type="radio" name="friNoon" value=bool(false) checked style> Off Day
+				<input type="radio" name="friNoon" value=bool(true)> Working
 				<br>
 				<label>Afternoon (2:00pm - 4:00pm)</label>
-				<input type="radio" name="friAfternoon" value=false checked style> Off Day
-				<input type="radio" name="friAfternoon" value=true> Working
+				<input type="radio" name="friAfternoon" value=bool(false) checked style> Off Day
+				<input type="radio" name="friAfternoon" value=bool(true)> Working
 				<br>
 				<label>Evening (4:00pm - 6:00pm)</label>
-				<input type="radio" name="friEvening" value=false checked style> Off Day
-				<input type="radio" name="friEvening" value=true> Working
-				<br><br>
-
-				<h2>Saturday</h2>
-				<label>Morning (10:00am - 12:00pm)</label>
-				<input type="radio" name="satMorning" value=false checked style> Off Day
-				<input type="radio" name="satMorning" value=true> Working
-				<br>
-				<label>Noon (12:00pm - 2:00pm)</label>
-				<input type="radio" name="satNoon" value=false checked style> Off Day
-				<input type="radio" name="satNoon" value=true> Working
-				<br>
-				<label>Afternoon (2:00pm - 4:00pm)</label>
-				<input type="radio" name="satAfternoon" value=false checked style> Off Day
-				<input type="radio" name="satAfternoon" value=true> Working
-				<br>
-				<label>Evening (4:00pm - 6:00pm)</label>
-				<input type="radio" name="satEvening" value=false checked style> Off Day
-				<input type="radio" name="satEvening" value=true> Working
-				<br><br>
-
-				<h2>Sunday</h2>
-				<label>Morning (10:00am - 12:00pm)</label>
-				<input type="radio" name="sunMorning" value=false checked style> Off Day
-				<input type="radio" name="sunMorning" value=true> Working
-				<br>
-				<label>Noon (12:00pm - 2:00pm)</label>
-				<input type="radio" name="sunNoon" value=false checked style> Off Day
-				<input type="radio" name="sunNoon" value=true> Working
-				<br>
-				<label>Afternoon (2:00pm - 4:00pm)</label>
-				<input type="radio" name="sunAfternoon" value=false checked style> Off Day
-				<input type="radio" name="sunAfternoon" value=true> Working
-				<br>
-				<label>Evening (4:00pm - 6:00pm)</label>
-				<input type="radio" name="sunEvening" value=false checked style> Off Day
-				<input type="radio" name="sunEvening" value=true> Working
+				<input type="radio" name="friEvening" value=bool(false) checked style> Off Day
+				<input type="radio" name="friEvening" value=bool(true)> Working
 				<br><br>
 				
 				<button type='submit' name='add-employee-worktime'>Confirm</button><br />
