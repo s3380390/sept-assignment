@@ -1,9 +1,11 @@
 <?php
 include_once("../lib/JSONHandler.php");
-	
+
 $db = "../database/employees.json";
 $l = new ListEmployee;
+//check if the database is correct
 if (!$l->listFunction($db)){
+	//return to homepage if database is not
 	header('Location: OwnerHome.html');
 }
 
@@ -21,7 +23,7 @@ class ListEmployee{
 					return false;
 				}
 				echo "$newline"
-				. "$tab<option>"
+				. "$tab<option value=\"" . $employee["name"] . "\">"
 				. "{$employee["name"]}"
 				. "</option>";
 			}
