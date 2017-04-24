@@ -1,0 +1,28 @@
+<?php
+	session_start(); 
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Booking Detail</title>
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+	</head>
+	<body>
+		<div id="header">
+		</div>
+		<a href="CustomerBooking.html">Back</a>
+		<form action ='Booking.html' method='post'>
+			<p>
+				Description:
+				<br>
+				<textarea id='desc' name='description' placeholder='Description'></textarea>
+				<br>
+			</p>
+			<?php echo "<input type='submit' name='" . array_shift(array_keys($_POST)) . "||" . $_SESSION["Name"] . "' value='Book'>"; unset($_POST);?>
+		</form>
+		<div id="footer">
+		</div>
+	</body>
+</html>
+

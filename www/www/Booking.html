@@ -1,0 +1,54 @@
+<?php
+	session_start(); 
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Booking Result</title>
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+	</head>
+	<body>
+		<div id="header">
+		</div>
+		<a href="CustomerHome.html">Home</a>
+		<?php 
+		include_once('booking.php');
+
+		$bookingdb = "../database/booking.json";
+		$worktimedb = "../database/employees.json";
+		$b = new Book;
+		$j = new JSONHandler;
+		$success = true;
+
+		if (empty($b->informationProcessor($_POST))){
+			$success = false;
+		} else {
+			$employeeArray = $j->getFileContents($worktimedb);
+			foreach ($employeeArray as $e_key => $employee){
+				if ($employee["name"] == $b -> Employee){
+					$employeeArray[$e_key]["workingtimes"][$b -> BookDay][$b -> BookShift]["booked"] = true;
+				}
+			}
+			$json = json_encode($employeeArray, JSON_PRETTY_PRINT);
+			file_put_contents($worktimedb, $json);
+
+			$b->bookFunction($bookingdb);
+		}
+		if ($success == false){
+			echo "<p>"
+			. "Booking file is either not found or corrupted"
+			. "<p>";
+		} else {
+			echo "<p>"
+			. "Booked Successfully"
+			. "<p>";
+		}
+
+		unset($_POST);
+		?>
+		<div id="footer">
+		</div>
+	</body>
+</html>
+

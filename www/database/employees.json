@@ -9,7 +9,7 @@
             "monday": {
                 "morning": {
                     "working": true,
-                    "booked": false
+                    "booked": true
                 },
                 "midday": {
                     "working": true,

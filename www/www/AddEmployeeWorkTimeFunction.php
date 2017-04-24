@@ -1,7 +1,6 @@
 <?php
-
-include("../lib/JSONHandler.php");
-
+	session_start();
+	include("../lib/JSONHandler.php");
 	$l = new AddEmployeeWorkTimeFunctions;
 	$inputTime = array(
 	"monday" => array(
@@ -39,10 +38,11 @@ include("../lib/JSONHandler.php");
 		"midday" => $_POST["sunNoon"],
 		"afternoon" => $_POST["sunAfternoon"],
     	"night" => $_POST["sunEvening"]));
-	if($l->addWorkTimes($_POST["name"], $inputTime))
+	if($reason = $l->addWorkTimes($_POST["name"], $inputTime)=="success")
 	{	
 		header("Location: addWorkTimeConfirmation.html");
 	} else {
+		$_SESSION["reason"] = $reason;
 		header("Location: addEmployeeWorkTime.html");
 	}
 	
@@ -51,21 +51,26 @@ class AddEmployeeWorkTimeFunctions{
 		$j = new JSONHandler;
 		$worktimedb = "../database/employees.json";
 		$edited = false;
+		$bookedTimeConflict = false;
 		if (!empty($viewArray = $j->getFileContents($worktimedb))){
 			foreach ($viewArray as $e_key => $employee){
-				if ($employee["name"]==$name){
+				if ($employee["name"]==str_replace("_", " ", $name)){
 					foreach ($employee["workingtimes"] as $dkey => $day){
 						foreach ($inputTime as $in_dkey => $in_day){
 							if ($in_dkey==$dkey){
 								foreach ($day as $skey => $shift){
 									foreach ($in_day as $tkey => $value){
-										if ($tkey==$skey){
-											if ($value=="true"){
-												$viewArray[$e_key]["workingtimes"][$dkey][$skey]["working"] = true;
+										if ($tkey==$skey){ 
+											if ($shift["booked"]==false){
+												if ($value=="true"){
+													$viewArray[$e_key]["workingtimes"][$dkey][$skey]["working"] = true;
+												} else {
+													$viewArray[$e_key]["workingtimes"][$dkey][$skey]["working"] = false;
+												}
+												$edited = true;
 											} else {
-												$viewArray[$e_key]["workingtimes"][$dkey][$skey]["working"] = false;
+												$bookedTimeConflict = true;
 											}
-											$edited = true;
 										}
 									}
 								}
@@ -75,11 +80,15 @@ class AddEmployeeWorkTimeFunctions{
 				}
 			}
 		}
-		if ($edited){
+		if ($edited && !$bookedTimeConflict){
 			$json = json_encode($viewArray, JSON_PRETTY_PRINT);
 			file_put_contents($worktimedb, $json);
+			return "success";
 		}
-		return $edited;
+		if (!$edited){
+			return "noChange";
+		}
+		return "conflict";
 	}
 }
 

@@ -1,3 +1,6 @@
+<?php
+	session_start()
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -10,9 +13,19 @@
 		</div>
 		<form action ='AddEmployeeWorkTimeFunction.php' method='post' >
 			<div class="container">
+				<?php
+				if (isset($_SESSION["reason"])){
+					if ($_SESSION["reason"]=="noChange"){
+						echo "<p>Form Sent In Wrong Format</p>";
+					} else {
+						echo "<p>Tried Changing Booked Time</p>";
+					}
+					unset($_SESSION["reason"]);
+				}
+				?>
 				<h1> Add Employee Working Times</h1>
-				<label>Please Enter Employee's Full Name</label>
-				<input type='text' name='name' placeholder='John Smith'  value='' pattern="[A-Za-z\-' ]{2,25}" required/></p>	
+				<label>Please Choose Employee's Full Name</label>
+				<select name="name" required><?php include_once('listEmployee.php') ?></select>	
 				<hr />				
 				<h1> Please choose Employee Work Times.</h1>
 				<h2>Monday</h2>
@@ -103,42 +116,6 @@
 				<label>Evening (4:00pm - 6:00pm)</label>
 				<input type="radio" name="friEvening" value=false checked style> Off Day
 				<input type="radio" name="friEvening" value=true> Working
-				<br><br>
-
-				<h2>Saturday</h2>
-				<label>Morning (10:00am - 12:00pm)</label>
-				<input type="radio" name="satMorning" value=false checked style> Off Day
-				<input type="radio" name="satMorning" value=true> Working
-				<br>
-				<label>Noon (12:00pm - 2:00pm)</label>
-				<input type="radio" name="satNoon" value=false checked style> Off Day
-				<input type="radio" name="satNoon" value=true> Working
-				<br>
-				<label>Afternoon (2:00pm - 4:00pm)</label>
-				<input type="radio" name="satAfternoon" value=false checked style> Off Day
-				<input type="radio" name="satAfternoon" value=true> Working
-				<br>
-				<label>Evening (4:00pm - 6:00pm)</label>
-				<input type="radio" name="satEvening" value=false checked style> Off Day
-				<input type="radio" name="satEvening" value=true> Working
-				<br><br>
-
-				<h2>Sunday</h2>
-				<label>Morning (10:00am - 12:00pm)</label>
-				<input type="radio" name="sunMorning" value=false checked style> Off Day
-				<input type="radio" name="sunMorning" value=true> Working
-				<br>
-				<label>Noon (12:00pm - 2:00pm)</label>
-				<input type="radio" name="sunNoon" value=false checked style> Off Day
-				<input type="radio" name="sunNoon" value=true> Working
-				<br>
-				<label>Afternoon (2:00pm - 4:00pm)</label>
-				<input type="radio" name="sunAfternoon" value=false checked style> Off Day
-				<input type="radio" name="sunAfternoon" value=true> Working
-				<br>
-				<label>Evening (4:00pm - 6:00pm)</label>
-				<input type="radio" name="sunEvening" value=false checked style> Off Day
-				<input type="radio" name="sunEvening" value=true> Working
 				<br><br>
 				
 				<button type='submit' name='add-employee-worktime'>Confirm</button><br />
