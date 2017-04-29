@@ -51,7 +51,6 @@ class AddEmployeeWorkTimeFunctions{
 		$j = new JSONHandler;
 		$worktimedb = "../database/employees.json";
 		$edited = false;
-		$bookedTimeConflict = false;
 		if (!empty($viewArray = $j->getFileContents($worktimedb))){
 			foreach ($viewArray as $e_key => $employee){
 				if ($employee["name"]==str_replace("_", " ", $name)){
@@ -61,15 +60,13 @@ class AddEmployeeWorkTimeFunctions{
 								foreach ($day as $skey => $shift){
 									foreach ($in_day as $tkey => $value){
 										if ($tkey==$skey){ 
-											if ($shift["booked"]==false){
+											if ($value!=NULL){
 												if ($value=="true"){
 													$viewArray[$e_key]["workingtimes"][$dkey][$skey]["working"] = true;
 												} else {
 													$viewArray[$e_key]["workingtimes"][$dkey][$skey]["working"] = false;
 												}
 												$edited = true;
-											} else {
-												$bookedTimeConflict = true;
 											}
 										}
 									}
@@ -80,15 +77,12 @@ class AddEmployeeWorkTimeFunctions{
 				}
 			}
 		}
-		if ($edited && !$bookedTimeConflict){
+		if ($edited){
 			$json = json_encode($viewArray, JSON_PRETTY_PRINT);
 			file_put_contents($worktimedb, $json);
 			return "success";
 		}
-		if (!$edited){
-			return "noChange";
-		}
-		return "conflict";
+		return "noChange";
 	}
 }
 

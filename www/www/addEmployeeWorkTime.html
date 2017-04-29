@@ -1,5 +1,18 @@
 <?php
-	session_start()
+	session_start();
+	include("../lib/JSONHandler.php");
+	$j = new JSONHandler;
+	$worktimedb = "../database/employees.json";
+	$employees = [];
+	if (!empty($employeeDatabase = $j->getFileContents($worktimedb))){
+		foreach ($employeeDatabase as $emprecord)
+		{
+			if ($emprecord["company"] == $_SESSION["UserName"])
+			{
+				array_push($employees, $emprecord);
+			}
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -7,115 +20,251 @@
 		<meta charset="UTF-8">
 		<title>Add Employee Working Times</title>
 		<link rel="stylesheet" type="text/css" href="styles/style.css">
+		<script>
+		function listTime(){
+			var name = <?php 
+				echo "["; 
+				foreach ($employees as $employee){
+					echo "\"" . ($last = $employee["name"]) . "\", ";
+				}
+				echo "\"\"]";
+			?>;
+			var book = <?php
+				echo "[";
+				foreach ($employees as $employee){
+					echo "[";
+					foreach ($employee["workingtimes"] as $dkey => $day){
+						foreach ($day as $skey => $shift){
+							echo $shift["booked"] ? "true" : "false";
+							if ($dkey!="sunday" || $skey!="night"){
+								echo ", ";
+							}
+						}
+					}
+					if ($employee["name"]!=$last){
+						echo "], ";
+					} else {
+						echo "]]";
+					}
+				}
+			?>;
+			var select = document.getElementById("employee");
+			var employee = select.options[select.selectedIndex].value;
+			name.pop();
+
+			for (i = 0; i<name.length; i++){
+				if (name[i] == employee){
+					for (j = 0; j<book[i].length; j++){
+						if (book[i][0]){
+							document.getElementById(j.toString()).disabled=true;
+						} else {
+							document.getElementById(j.toString()).disabled=false;
+						}
+					}
+				}
+			}
+
+			
+		}
+		</script>
 	</head>
-	<body>
+	<body onload="listTime()">
 		<div id="header">
 		</div>
 		<form action ='AddEmployeeWorkTimeFunction.php' method='post' >
 			<div class="container">
 				<?php
 				if (isset($_SESSION["reason"])){
-					if ($_SESSION["reason"]=="noChange"){
-						echo "<p>Form Sent In Wrong Format</p>";
-					} else {
-						echo "<p>Tried Changing Booked Time</p>";
-					}
+					echo "<p>Form Sent In Wrong Format</p>";
 					unset($_SESSION["reason"]);
 				}
 				?>
 				<h1> Add Employee Working Times</h1>
 				<label>Please Choose Employee's Full Name</label>
-				<select name="name" required><?php include_once('listEmployee.php') ?></select>	
+				<select name="name" id="employee" onchange="listTime()" required><?php include_once('listEmployee.php') ?></select>	
 				<hr />				
 				<h1> Please choose Employee Work Times.</h1>
+				
 				<h2>Monday</h2>
 				<label>Morning (10:00am - 12:00pm)</label>
-				<input type="radio" name="monMorning" value=false checked style> Off Day
-				<input type="radio" name="monMorning" value=true> Working
+				<select name="monMorning" id="0">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
 				<br>
 				<label>Noon (12:00pm - 2:00pm)</label>
-				<input type="radio" name="monNoon" value=false checked style> Off Day
-				<input type="radio" name="monNoon" value=true> Working
+				<select name="monNoon" id="1">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
 				<br>
 				<label>Afternoon (2:00pm - 4:00pm)</label>
-				<input type="radio" name="monAfternoon" value=false checked style> Off Day
-				<input type="radio" name="monAfternoon" value=true> Working
+				<select name="monAfternoon" id="2">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
 				<br>
 				<label>Evening (4:00pm - 6:00pm)</label>
-				<input type="radio" name="monEvening" value=false checked style> Off Day
-				<input type="radio" name="monEvening" value=true> Working
+				<select name="monEvening" id="3">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
 				<br><br>
 				
 				<h2>Tuesday</h2>
 				<label>Morning (10:00am - 12:00pm)</label>
-				<input type="radio" name="tueMorning" value=false checked style> Off Day
-				<input type="radio" name="tueMorning" value=true> Working
+				<select name="tueMorning" id="4">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
 				<br>
 				<label>Noon (12:00pm - 2:00pm)</label>
-				<input type="radio" name="tueNoon" value=false checked style> Off Day
-				<input type="radio" name="tueNoon" value=true> Working
+				<select name="tueNoon" id="5">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
 				<br>
 				<label>Afternoon (2:00pm - 4:00pm)</label>
-				<input type="radio" name="tueAfternoon" value=false checked style> Off Day
-				<input type="radio" name="tueAfternoon" value=true> Working
+				<select name="tueAfternoon" id="6">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
 				<br>
 				<label>Evening (4:00pm - 6:00pm)</label>
-				<input type="radio" name="tueEvening" value=false checked style> Off Day
-				<input type="radio" name="tueEvening" value=true> Working
+				<select name="tueEvening" id="7">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
 				<br><br>
 				
 				<h2>Wednesday</h2>
 				<label>Morning (10:00am - 12:00pm)</label>
-				<input type="radio" name="wedMorning" value=false checked style> Off Day
-				<input type="radio" name="wedMorning" value=true> Working
+				<select name="wedMorning" id="8">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
 				<br>
 				<label>Noon (12:00pm - 2:00pm)</label>
-				<input type="radio" name="wedNoon" value=false checked style> Off Day
-				<input type="radio" name="wedNoon" value=true> Working
+				<select name="wedNoon" id="9">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
 				<br>
 				<label>Afternoon (2:00pm - 4:00pm)</label>
-				<input type="radio" name="wedAfternoon" value=false checked style> Off Day
-				<input type="radio" name="wedAfternoon" value=true> Working
+				<select name="wedAfternoon" id="10">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
 				<br>
 				<label>Evening (4:00pm - 6:00pm)</label>
-				<input type="radio" name="wedEvening" value=false checked style> Off Day
-				<input type="radio" name="wedEvening" value=true> Working
+				<select name="wedEvening" id="11">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
 				<br><br>
 				
 				<h2>Thursday</h2>
 				<label>Morning (10:00am - 12:00pm)</label>
-				<input type="radio" name="thuMorning" value=false checked style> Off Day
-				<input type="radio" name="thuMorning" value=true> Working
+				<select name="thuMorning" id="12">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
 				<br>
 				<label>Noon (12:00pm - 2:00pm)</label>
-				<input type="radio" name="thuNoon" value=false checked style> Off Day
-				<input type="radio" name="thuNoon" value=true> Working
+				<select name="thuNoon" id="13">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
 				<br>
 				<label>Afternoon (2:00pm - 4:00pm)</label>
-				<input type="radio" name="thuAfternoon" value=false checked style> Off Day
-				<input type="radio" name="thuAfternoon" value=true> Working
+				<select name="thuAfternoon" id="14">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
 				<br>
 				<label>Evening (4:00pm - 6:00pm)</label>
-				<input type="radio" name="thuEvening" value=false checked style> Off Day
-				<input type="radio" name="thuEvening" value=true> Working
+				<select name="thuEvening" id="15">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
 				<br><br>
 				
 				<h2>Friday</h2>
 				<label>Morning (10:00am - 12:00pm)</label>
-				<input type="radio" name="friMorning" value=false checked style> Off Day
-				<input type="radio" name="friMorning" value=true> Working
+				<select name="friMorning" id="16">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
 				<br>
 				<label>Noon (12:00pm - 2:00pm)</label>
-				<input type="radio" name="friNoon" value=false checked style> Off Day
-				<input type="radio" name="friNoon" value=true> Working
+				<select name="friNoon" id="17">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
 				<br>
 				<label>Afternoon (2:00pm - 4:00pm)</label>
-				<input type="radio" name="friAfternoon" value=false checked style> Off Day
-				<input type="radio" name="friAfternoon" value=true> Working
+				<select name="friAfternoon" id="18">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
 				<br>
 				<label>Evening (4:00pm - 6:00pm)</label>
-				<input type="radio" name="friEvening" value=false checked style> Off Day
-				<input type="radio" name="friEvening" value=true> Working
+				<select name="friEvening" id="19">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
+				<br><br>
+				
+				<h2>Saturday</h2>
+				<label>Morning (10:00am - 12:00pm)</label>
+				<select name="satMorning" id="20">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
+				<br>
+				<label>Noon (12:00pm - 2:00pm)</label>
+				<select name="satNoon" id="21">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
+				<br>
+				<label>Afternoon (2:00pm - 4:00pm)</label>
+				<select name="satAfternoon" id="22">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
+				<br>
+				<label>Evening (4:00pm - 6:00pm)</label>
+				<select name="satEvening" id="23">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
+				<br><br>
+				
+				<h2>Sunday</h2>
+				<label>Morning (10:00am - 12:00pm)</label>
+				<select name="sunMorning" id="24">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
+				<br>
+				<label>Noon (12:00pm - 2:00pm)</label>
+				<select name="sunNoon" id="25">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
+				<br>
+				<label>Afternoon (2:00pm - 4:00pm)</label>
+				<select name="sunAfternoon" id="26">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
+				<br>
+				<label>Evening (4:00pm - 6:00pm)</label>
+				<select name="sunEvening" id="27">
+				<option value=false> Off Day </option>
+				<option value=true> Working </option>
+				</select>
 				<br><br>
 				
 				<button type='submit' name='add-employee-worktime'>Confirm</button><br />
