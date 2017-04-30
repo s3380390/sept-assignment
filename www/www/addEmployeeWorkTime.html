@@ -1,17 +1,21 @@
 <?php
 	session_start();
-	include("../lib/JSONHandler.php");
+	include("config.php");
 	$j = new JSONHandler;
-	$worktimedb = "../database/employees.json";
+	$worktimedb = $database["employees"];
 	$employees = [];
+	$count = 0;
+	
 	if (!empty($employeeDatabase = $j->getFileContents($worktimedb))){
 		foreach ($employeeDatabase as $emprecord)
 		{
 			if ($emprecord["company"] == $_SESSION["UserName"])
 			{
 				array_push($employees, $emprecord);
+				$count++;
 			}
 		}
+		$log->addInfo($count . " employees loaded for addEmployeeWorkTime");
 	}
 ?>
 <!DOCTYPE html>
