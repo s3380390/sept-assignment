@@ -1,22 +1,26 @@
 <?php
 session_start();
-include_once("../lib/JSONHandler.php");
+include_once("config.php");
 	
 	$l = new LoginFunctions;
-	if($l->login($_POST["username"], $_POST["password"], "customer")){
+	
+	if($l->login($_POST["username"], $_POST["password"], $database['customers'])){
+		$log->addInfo("Customer: " . $_POST["username"] . " logged in successfully");
 		header("Location: CustomerHome.html");
 	} else {
-		if ($l->login($_POST["username"], $_POST["password"], "owner")){
+		if ($l->login($_POST["username"], $_POST["password"], $database['owners'])){
+			$log->addInfo("Owner: " . $_POST["username"] . " logged in successfully");
 			header("Location: OwnerHome.html");
 		}else{
+			$log->addInfo("Failed login attempt");
 			header("Location: login.html");
 		}
 	}
+	
 class LoginFunctions{
-	public function login($username, $password, $type){
+	public function login($username, $password, $db){
 		$j = new JSONHandler;
-		$db = array("customer"=>"../database/customers.json", "owner"=>"../database/owners.json");
-		if (!empty($user = $j->search($db[$type], "username", $username))){
+		if (!empty($user = $j->search($db, "username", $username))){
 			if ($user["password"] == $password){
 				$_SESSION["UserName"] = $user["username"];
 				$_SESSION["Password"] = $user["password"];
