@@ -1,6 +1,8 @@
 <?php
 	session_start();
-	include("../lib/JSONHandler.php");
+	include("config.php");
+	//		$worktimedb = "../database/employees.json";
+	$db = $database["employees"];
 	$l = new AddEmployeeWorkTimeFunctions;
 	$inputTime = array(
 	"monday" => array(
@@ -38,18 +40,19 @@
 		"midday" => $_POST["sunNoon"],
 		"afternoon" => $_POST["sunAfternoon"],
     	"night" => $_POST["sunEvening"]));
-	if($reason = $l->addWorkTimes($_POST["name"], $inputTime)=="success")
+	if($reason = $l->addWorkTimes($db, $_POST["name"], $inputTime)=="success")
 	{	
+		$log->addInfo("Employee " . $_POST["name"] . " work time added successfully" );
 		header("Location: addWorkTimeConfirmation.html");
 	} else {
+		$log->addInfo("Employee " . $_POST["name"] . " work time change failed, reason: " . $reason);
 		$_SESSION["reason"] = $reason;
 		header("Location: addEmployeeWorkTime.html");
 	}
 	
 class AddEmployeeWorkTimeFunctions{
-	public function addWorkTimes($name, $inputTime){
+	public function addWorkTimes($worktimedb, $name, $inputTime){
 		$j = new JSONHandler;
-		$worktimedb = "../database/employees.json";
 		$edited = false;
 		if (!empty($viewArray = $j->getFileContents($worktimedb))){
 			foreach ($viewArray as $e_key => $employee){
