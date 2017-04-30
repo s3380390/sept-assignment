@@ -1,11 +1,9 @@
 <?php
 session_start();
-include("../lib/JSONHandler.php");
-include('AddEmployeeWorkTimeFunctions.php');
-$bookingdb = "../database/booking.json";
-$worktimedb = "../database/employees.json";
+include("config.php");
+$bookingdb = $database["bookings"];
+$worktimedb = $database["employees"];
 $b = new Book;
-$l = new AddEmployeeWorkTimeFunctions;
 $j = new JSONHandler;
 $success = true;
 
@@ -27,10 +25,12 @@ if ($success == false){
 	echo "<p>"
 	. "Booking file is either not found or corrupted"
 	. "<p>";
+	$log->addInfo("Booking was unsuccessful");
 } else {
 	echo "<p>"
 	. "Booked Successfully"
 	. "<p>";
+	$log->addInfo("Booking successfully made");
 }
 
 class Book{
