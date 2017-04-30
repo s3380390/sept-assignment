@@ -1,5 +1,6 @@
 <?php
 	session_start();
+
 	include("config.php");
 	//		$worktimedb = "../database/employees.json";
 	$db = $database["employees"];
@@ -54,6 +55,7 @@ class AddEmployeeWorkTimeFunctions{
 	public function addWorkTimes($worktimedb, $name, $inputTime){
 		$j = new JSONHandler;
 		$edited = false;
+		$bookedTimeConflict = false;
 		if (!empty($viewArray = $j->getFileContents($worktimedb))){
 			foreach ($viewArray as $e_key => $employee){
 				if ($employee["name"]==str_replace("_", " ", $name)){
@@ -80,7 +82,7 @@ class AddEmployeeWorkTimeFunctions{
 				}
 			}
 		}
-		if ($edited){
+		if ($edited && !$bookedTimeConflict){
 			$json = json_encode($viewArray, JSON_PRETTY_PRINT);
 			file_put_contents($worktimedb, $json);
 			return "success";

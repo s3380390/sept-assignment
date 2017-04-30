@@ -32,7 +32,6 @@ if ($success == false){
 	. "<p>";
 	$log->addInfo("Booking successfully made");
 }
-
 class Book{
 	public function bookFunction($db){
 		$j = new JSONHandler;
