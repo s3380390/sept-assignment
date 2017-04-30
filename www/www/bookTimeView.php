@@ -47,10 +47,7 @@ class View{
 							echo "Not Working";
 						} else {
 							if ($shift["booked"]){
-								echo "$newline$t_tab<form action='CustomerViewBookingDetail.html' method='post'>"
-									. "$newline$t_tab\t<input type='submit' name='" 
-										. $employee["company"] . "||" . $employee["name"] . "||" . $dkey . "||" . $skey . "' value='Booked(View)'>"
-									. "$newline$t_tab</form>";
+								echo "Booked";
 							} else {
 								if (!$booking){
 									echo "Not Booked";
