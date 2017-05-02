@@ -1,0 +1,51 @@
+<?php
+	session_start(); 
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Booking Detail</title>
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<?php
+	if ($_SESSION["UserType"]=="Owner"){
+		echo "\t<script type=\"text/javascript\" src=\"scripts/booking.js\"></script>\r\n";
+	}
+	?>
+	</head>
+	<body>
+		<div id="header">
+		</div>
+		<a href="Booking.html">Back</a>
+		<?php
+		echo "<form action ='BookingResult.html' ";
+		if ($_SESSION["UserType"]=="Owner"){
+			echo "onsubmit=\"return formValidate();\" ";
+		}
+		echo "method='post'>\r\n";
+		if ($_SESSION["UserType"]=="Owner"){
+			echo "\t\t\t<p>Customer:"
+				. "<input type='text' name='customer' placeholder='Customer Name' required/>\r\n"
+				. "\t\t\t<span class='error' id='cNameError'></span></p>\r\n";
+		}
+		?>
+			<p>
+				Description:
+				<br>
+				<textarea id='desc' name='description' placeholder='Description'></textarea>
+				<br>
+			</p>
+			<?php 
+			echo "<input type='submit' name='" . array_shift(array_keys($_POST)) . "||";
+			if ($_SESSION["UserType"]=="Customer"){
+				echo $_SESSION["Name"];
+			}
+			echo "' value='Book'>"; 
+			unset($_POST);
+			?>
+		</form>
+		<div id="footer">
+		</div>
+	</body>
+</html>
+

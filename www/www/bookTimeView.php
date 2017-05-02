@@ -1,17 +1,9 @@
 <?php
 include_once("../lib/JSONHandler.php");
-	
-$db = "../database/employees.json";
-$v = new View;
-//check if database is in correct format and display in table view
-if (!$v->viewFunction($db, $booking)){
-	echo "<p>"
-	. "Booking time file is either not found or corrupted"
-	. "<p>";
-}
+session_start();
 
 class View{
-	public function viewFunction($db, $booking){
+	public function viewFunction($db, $booking, $userType, $userName){
 		$j = new JSONHandler;
 		$f_tab = "\t\t";
 		$s_tab = "\t\t\t";
@@ -27,6 +19,11 @@ class View{
 				|| empty($employee["address"])
 				|| empty($employee["phoneno"])){
 					return false;
+				}
+				if ($userType=="Owner"){
+					if ($employee["company"]!=$userName){
+						continue;
+					}
 				}
 				echo "$newline"
 				. "$f_tab<p>"
@@ -52,7 +49,7 @@ class View{
 								if (!$booking){
 									echo "Not Booked";
 								} else {
-									echo "$newline$t_tab<form action='CustomerBookingDetail.html' method='post'>"
+									echo "$newline$t_tab<form action='BookingDetail.html' method='post'>"
 									. "$newline$t_tab\t<input type='submit' name='" 
 										. $employee["company"] . "||" . $employee["name"] . "||" . $dkey . "||" . $skey . "' value='Book'>"
 									. "$newline$t_tab</form>";

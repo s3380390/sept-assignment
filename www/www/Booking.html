@@ -1,18 +1,29 @@
 <?php
 	session_start(); 
+	include_once('bookTimeView.php'); 
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Booking Result</title>
+		<title>Booking</title>
 		<link rel="stylesheet" type="text/css" href="styles/style.css">
 	</head>
 	<body>
 		<div id="header">
 		</div>
-		<a href="CustomerHome.html">Home</a>
-		<?php include_once('booking.php'); //unset($_POST);
+		<?php 
+		echo "<a href=\"" . $_SESSION["UserType"] . "Home.html\">Home</a>";
+		$booking=true;
+		$db = "../database/employees.json";
+		$v = new View;
+		//check if database is in correct format and display in table view
+		if (!$v->viewFunction($db, $booking, $_SESSION["UserType"], $_SESSION["UserName"])){
+			echo "<p>"
+			. "Booking time file is either not found or corrupted"
+			. "<p>";
+		}
+
 		?>
 		<div id="footer">
 		</div>

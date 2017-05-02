@@ -13,7 +13,17 @@
 		</div>
 		<a href="CustomerHome.html">Home</a>
 		<?php $booking=false;
-		include_once('bookTimeView.php'); ?>
+		include_once('bookTimeView.php'); 
+		$db = "../database/employees.json";
+		$v = new View;
+		$booking=false;
+		//check if database is in correct format and display in table view
+		if (!$v->viewFunction($db, $booking, $_SESSION["UserType"], $_SESSION["UserName"])){
+			echo "<p>"
+			. "Booking time file is either not found or corrupted"
+			. "<p>";
+		}
+		?>
 		<div id="footer">
 		</div>
 	</body>

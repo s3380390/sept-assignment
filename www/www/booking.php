@@ -54,7 +54,11 @@ class Book{
 		$this -> Employee = str_replace("_", " ", $informationArray[1]);
 		$this -> BookDay = $informationArray[2];
 		$this -> BookShift = $informationArray[3];
-		$this -> Customer = $informationArray[4];
+		if ($_SESSION["UserType"]=="Customer"){
+			$this -> Customer = $informationArray[4];
+		} else {
+			$this -> Customer = $information["customer"];
+		}
 		return true;
 	}
 }

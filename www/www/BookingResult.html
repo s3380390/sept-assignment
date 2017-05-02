@@ -5,16 +5,17 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Home Page</title>
+		<title>Booking Result</title>
 		<link rel="stylesheet" type="text/css" href="styles/style.css">
 	</head>
 	<body>
 		<div id="header">
 		</div>
-		<h1><?php echo 'Welcome ' . $_SESSION["Name"] ?></h1>
-		<a href="ViewBooking.html">View Booking</a>
-		<a href="Booking.html">Booking</a>
-		<a href="LogOut.php">Log Out</a>
+		<?php 
+		echo "<a href=\"" . $_SESSION["UserType"] . "Home.html\">Home</a>";
+		include_once('booking.php'); 
+		unset($_POST);
+		?>
 		<div id="footer">
 		</div>
 	</body>
