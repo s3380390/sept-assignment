@@ -1,0 +1,22 @@
+<?php 
+	session_start();
+?>
+	
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Summary of Bookings</title>
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+	</head>
+	<body>
+		<div id="header">
+		</div>
+		<a href="CustomerHome.html">Home</a>
+		<h1>Here is the list of bookings for your company: </h1>
+		<?php $summary=false;
+		include_once('viewBookingSummary.php'); ?>
+		<div id="footer">
+		</div>
+	</body>
+</html>
