@@ -15,15 +15,17 @@
 		<a href="CustomerBooking.html">Go To Booking</a>
 		<?php 
 		include_once('booking.php'); 
-
+                //accessing booking database
 		$bookingdb = "../database/booking.json";
 		$b = new Book;
 		$j = new JSONHandler;
 		$success = true;
 
+                //form input error checking
 		if (empty($b->informationProcessor($_POST))){
 			echo "<p>Sent Form Error</p>";
 		} else {
+                        //retrieving and displaying booking information
 			$bookingData = $j->getFileContents($bookingdb);
 			foreach ($bookingData as $bKey => $bookingDetail){
 				if ($bookingDetail["company"] == $b->Company
