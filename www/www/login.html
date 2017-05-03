@@ -16,8 +16,10 @@
 		<div id="header">
 		</div>
 		<form method="post" action="LoginFunction.php">
+                        <!--container container creates border for log in form-->
 			<div class="container">
 				<h1>Login</h1>
+				<!--class div50 used to display smaller fields inline-->
 				<div class="div50">
 					<label>Username</label>
 					<input type="text" name="username" placeholder="Username">
@@ -28,6 +30,7 @@
 				</div>
 				<div class="clearfix"></div>
 				<button type="submit" name ="btn-login">Login</button><br />
+				<!--link to take users to sign up page-->
 				<span>New user? - <a href="register.html">Register</a></span>
 			</div>
 		</form>
@@ -36,6 +39,7 @@
 	</body>
 </html>
 <script>
+	//validating form input
 	$(document).ready(function(){
 		$("form").submit(function(){
 			if (validateForm())
