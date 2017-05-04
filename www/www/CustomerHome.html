@@ -11,10 +11,13 @@
 	<body>
 		<div id="header">
 		</div>
-		<h1><?php echo 'Welcome ' . $_SESSION["Name"] ?></h1>
-		<a href="ViewBooking.html">View Booking</a>
-		<a href="Booking.html">Booking</a>
-		<a href="LogOut.php">Log Out</a>
+		<div class="homemenu">
+			<h1><?php echo 'Welcome ' . $_SESSION["Name"] ?></h1>
+			<hr />
+			<a href="ViewBooking.html">View Availability</a><br />
+			<a href="Booking.html">Make Booking</a><br />
+			<a href="LogOut.php">Log Out</a>
+		</div>
 		<div id="footer">
 		</div>
 	</body>

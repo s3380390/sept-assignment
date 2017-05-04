@@ -4,8 +4,67 @@ body {
 }
 
 table, th, td {
-	border: 3px solid black;
+	border: 2px solid black;
 	border-collapse: collapse;
+}
+
+.bookingform {
+  all: initial;
+  * {
+    all: unset;
+  }
+}
+
+.timetablecontainer {
+	border: 3px solid;
+	width: 900px;
+	margin: auto;
+	padding: 20px 50px;
+	border-radius: 20px;
+	box-sizing: border-box;
+	text-align:center;
+	background-color: #ffffff;
+}
+
+.homemenu{
+	border: 3px solid;
+	width: 600px;
+	margin: auto;
+	padding: 20px 50px;
+	border-radius: 20px;
+	box-sizing: border-box;
+	text-align:center;
+	background-color: #ffffff;
+}
+
+.homemenu hr {
+	width: 90%;
+}
+
+.bluebutton a:link, .bluebutton a:visited {
+    background-color: #1f4b91;
+    color: white;
+    padding: 14px 25px;
+    margin: 10px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+}
+.bluebutton a:hover, .bluebutton a:active {
+    opacity: 0.8;
+}
+
+.homemenu a:link, .homemenu a:visited {
+    background-color: #1f4b91;
+    color: white;
+    padding: 14px 25px;
+    margin: 10px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+}
+.homemenu a:hover, .homemenu a:active {
+    opacity: 0.8;
 }
 
 .employeegroup {
@@ -35,7 +94,6 @@ table, th, td {
 
 .daygroup .daybox label {
 	text-align: center;
-	width: 20%;
 }
 
 .daygroup .daybox {
@@ -62,6 +120,10 @@ table, th, td {
 
 .free{
 	background-color: #C9C9C9; 
+}
+
+.tabpane {
+	background-color: #f1f1f1;
 }
 
 .tabbar button {
@@ -135,7 +197,6 @@ form input[type=text], form input[type=password] {
 	box-sizing: border-box;
 }
 
-
 form button {
     background-color: #1f4b91;
     padding: 10px 20px;
@@ -152,12 +213,12 @@ form button:hover {
 }
 
 #header {
-	height: 100px;
+	height: 75px;
 	width: 100%;
 }
 
 #footer {
-	height: 100px;
+	height: 75px;
 	width: 100%;
 	clear: both;
 }

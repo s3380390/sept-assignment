@@ -23,6 +23,7 @@
 			echo "onsubmit=\"return formValidate();\" ";
 		}
 		echo "method='post'>\r\n";
+		echo "<div class=\"container\">";
 		if ($_SESSION["UserType"]=="Owner"){
 			echo "\t\t\t<p>Customer:"
 				. "<input type='text' name='customer' placeholder='Customer Name' required/>\r\n"
@@ -36,13 +37,14 @@
 				<br>
 			</p>
 			<?php 
-			echo "<input type='submit' name='" . array_shift(array_keys($_POST)) . "||";
+			echo "<button type='submit' name='" . array_shift(array_keys($_POST)) . "||";
 			if ($_SESSION["UserType"]=="Customer"){
 				echo $_SESSION["Name"];
 			}
-			echo "' value='Book'>"; 
+			echo "'>Book</button>"; 
 			unset($_POST);
 			?>
+			</div>
 		</form>
 		<div id="footer">
 		</div>

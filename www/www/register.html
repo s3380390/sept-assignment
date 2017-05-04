@@ -13,13 +13,10 @@
 	<body>
 		<div id="header">
 		</div>
-		<!--Creating sign up form-->
 		<form action ='SignUpFunction.php' method='post' >
-			<!--creating a container for the form-->
 			<div class="container">
 				<h1> Sign Up </h1>
-				<!--validating form input-->
-				<?php
+				<?php 
 				if (isset($_SESSION["format"])){
 					echo "<p>Wrong password format<p>";
 				}
@@ -31,7 +28,6 @@
 				}
 				session_destroy();
 				?>
-				<!--class div50 used to style smaller form fields-->
 				<div class="div50">
 					<label>First Name</label>
 					<input type='text' name='firstname' placeholder='John' required/>
@@ -40,7 +36,6 @@
 					<label>Last Name</label>
 					<input type='text' name='lastname' placeholder='Smith' required/>
 				</div>
-				<!--class clearfix used to move next form element below the previous one-->
 				<div class="clearfix"></div>
 				<hr />
 					<label>Username</label>
@@ -60,7 +55,6 @@
 				<label>Address</label>
 				<input type='text' name='address' value='' required/>
 				<button type='submit' name='btn-register'>Submit</button><br />
-				<!--link taking registered users to login page-->
 				<span style="margin-top:20px;">Already registered? - <a href="login.html">Sign In</a></span>
 			</div>
 		</form>
@@ -93,7 +87,6 @@
 			}
 		});
 		
-		//running functions that validate each form field
 		$("input[name='contact']").focusout(function(){
 			validatePhone();
 		});

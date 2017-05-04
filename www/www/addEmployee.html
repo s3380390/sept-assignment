@@ -11,10 +11,8 @@
 		<div id="header">
 		</div>
 		<form action ='AddEmployeeFunction.php' method='post' >
-			<!--class container creates border for log in form-->
 			<div class="container">
 				<h1> Add Employee </h1>
-				<!--class div50 used to display smaller fields inline-->
 				<div class="div50">
 					<label>First Name</label>
 					<input type='text' name='firstname' placeholder='John'  value='' pattern="[A-Za-z\-' ]{2,25}" required/></p>
@@ -52,7 +50,7 @@
 				return false;
 		});
 		
-		//calling functions that validte each form input 
+		
 		$("input[name='firstname']").focusout(function(){
 			validateFirstname();
 		});

@@ -11,11 +11,17 @@
 	<body>
 		<div id="header">
 		</div>
-		<?php 
-		echo "<a href=\"" . $_SESSION["UserType"] . "Home.html\">Home</a>";
-		include_once('booking.php'); 
-		unset($_POST);
-		?>
+		<form>
+			<div class="container">
+					<div class="bluebutton">
+			<?php 
+			include_once('booking.php'); 
+			echo "<a href=\"" . $_SESSION["UserType"] . "Home.html\">Home</a>";
+			unset($_POST);
+			?>
+					</div>
+			</div>
+		</form>
 		<div id="footer">
 		</div>
 	</body>

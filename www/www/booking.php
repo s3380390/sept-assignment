@@ -48,14 +48,14 @@ class Book{
 		if (empty($information)){
 			return false;
 		}
-		$Description = $information["description"];
+		$this -> Description = $information["description"];
 		$informationArray = explode("||", array_pop(array_keys($information)));
 		$this -> Company = $informationArray[0];
 		$this -> Employee = str_replace("_", " ", $informationArray[1]);
 		$this -> BookDay = $informationArray[2];
 		$this -> BookShift = $informationArray[3];
 		if ($_SESSION["UserType"]=="Customer"){
-			$this -> Customer = $informationArray[4];
+			$this -> Customer = str_replace("_", " ", $informationArray[4]);
 		} else {
 			$this -> Customer = $information["customer"];
 		}
