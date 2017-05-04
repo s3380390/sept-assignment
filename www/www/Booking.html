@@ -12,21 +12,20 @@
 	<body>
 		<div id="header">
 		</div>
-		<div class="homemenu">
 		<?php 
-		echo "<div class=\"bluebutton\"><a href=\"" . $_SESSION["UserType"] . "Home.html\">Home</a></div>";
+		echo "<a href=\"" . $_SESSION["UserType"] . "Home.html\">Home</a>";
 		$booking=true;
-		$db = "../database/employees.json";
+		$employeeDatabase = "../database/employees.json";
+		$companyDatabase = "../database/owners.json";
 		$v = new View;
 		//check if database is in correct format and display in table view
-		if (!$v->viewFunction($db, $booking, $_SESSION["UserType"], $_SESSION["UserName"])){
+		if (!$v->viewFunction($employeeDatabase, $companyDatabase, $booking, $_SESSION["UserType"], $_SESSION["UserName"])){
 			echo "<p>"
 			. "Booking time file is either not found or corrupted"
 			. "<p>";
 		}
 
 		?>
-		</div>
 		<div id="footer">
 		</div>
 	</body>
