@@ -19,8 +19,13 @@
 		$employeeDatabase = "../database/employees.json";
 		$companyDatabase = "../database/owners.json";
 		$v = new View;
+		if ($_SESSION["UserType"] == "Customer"){
+			$userName = $_SESSION["Name"];
+		} else {
+			$userName = $_SESSION["UserName"];
+		}
 		//check if database is in correct format and display in table view
-		if (!$v->viewFunction($employeeDatabase, $companyDatabase, $booking, $_SESSION["UserType"], $_SESSION["UserName"])){
+		if (!$v->viewFunction($employeeDatabase, $companyDatabase, $booking, $_SESSION["UserType"], $userName)){
 			echo "<p>"
 			. "Booking time file is either not found or corrupted"
 			. "<p>";

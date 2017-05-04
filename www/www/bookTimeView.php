@@ -1,10 +1,13 @@
 <?php
 include_once("../lib/JSONHandler.php");
-session_start();
 
 class View{
 	public function viewFunction($employeeDatabase, $companyDatabase, $booking, $userType, $userName){
 		$j = new JSONHandler;
+		
+		if ($userType=="Customer"){
+			$customerName = $userName;
+		}
 
 		if (!empty($company = $j->getFileContents($companyDatabase))){
 			foreach ($company as $owner){
@@ -29,7 +32,7 @@ class View{
 								$database[$userName][$employee["name"]]=$employee["name"];
 							}
 							if ($userType=="Owner"){
-								$this -> write($employee, $booking);
+								$this -> write($employee, $booking, NULL);
 							}
 						}
 					}
@@ -43,7 +46,7 @@ class View{
 						foreach ($employees as $employeeName){
 							foreach ($viewArray as $employee){
 								if ($companyName==$employee["company"] && $employeeName==$employee["name"]){
-									$this -> write($employee, $booking);
+									$this -> write($employee, $booking, $customerName);
 								}
 							}
 						}
@@ -56,7 +59,7 @@ class View{
 		return false;
 	}
 
-	function write($employee, $booking){
+	function write($employee, $booking, $customerName){
 		$f_tab = "\t\t\t";
 		$s_tab = "\t\t\t\t";
 		$t_tab = "\t\t\t\t\t";
@@ -81,7 +84,17 @@ class View{
 					echo "Not Working";
 				} else {
 					if ($shift["booked"]){
-						echo "Booked";
+						if ($booking){
+							echo "Booked";
+						} else {
+							if (!empty($customerName)
+							&& !empty($bookDetail = $this->checkBookingCustomer($employee, $dkey, $skey, $customerName))){
+								echo "$newline$t_tab<form action='ViewBookingDetail.html' method='post'>"
+								. "$newline$t_tab\t<input type='submit' name='" 
+									. $bookDetail["company"] . "||" . $bookDetail["employee"] . "||" . $dkey . "||" . $skey . "||" . $customerName . "||" . $bookDetail["description"] . "' value='View'>"
+								. "$newline$t_tab</form>";
+							}
+						}
 					} else {
 						if (!$booking){
 							echo "Not Booked";
@@ -98,6 +111,24 @@ class View{
 			echo "$s_tab</tr>$newline";
 		}
 		echo "$f_tab</table>$newline";
+	}
+
+	function checkBookingCustomer($employee, $day, $shift, $customerName){
+		$bookingDatabase = '../database/booking.json';
+
+		$j = new JSONHandler;
+
+		if (!empty($booking = $j->getFileContents($bookingDatabase))){
+			foreach ($booking as $bookingDetail){
+				if ($bookingDetail["company"]==$employee["company"]
+				&& $bookingDetail["employee"]==$employee["name"]
+				&& $bookingDetail["day"]==$day
+				&& $bookingDetail["shift"]==$shift
+				&& $bookingDetail["customer"]==$customerName){
+					return $bookingDetail;
+				}
+			}
+		}
 	}
 }
 
