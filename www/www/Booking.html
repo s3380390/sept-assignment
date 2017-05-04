@@ -12,8 +12,9 @@
 	<body>
 		<div id="header">
 		</div>
+		<div class="homemenu">
 		<?php 
-		echo "<a href=\"" . $_SESSION["UserType"] . "Home.html\">Home</a>";
+		echo "<div class=\"bluebutton\"><a href=\"" . $_SESSION["UserType"] . "Home.html\">Home</a></div>";
 		$booking=true;
 		$employeeDatabase = "../database/employees.json";
 		$companyDatabase = "../database/owners.json";
@@ -26,6 +27,7 @@
 		}
 
 		?>
+		</div>
 		<div id="footer">
 		</div>
 	</body>

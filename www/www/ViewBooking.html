@@ -1,5 +1,6 @@
 <?php
 	session_start(); 
+	include_once('bookTimeView.php'); 
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,9 +12,10 @@
 	<body>
 		<div id="header">
 		</div>
-		<a href="CustomerHome.html">Home</a>
-		<?php $booking=false;
-		include_once('bookTimeView.php'); 
+		<div class="homemenu">
+			<div class="bluebutton"><a href="CustomerHome.html">Home</a></div>
+		<?php 
+		$booking=false;
 		$employeeDatabase = "../database/employees.json";
 		$companyDatabase = "../database/owners.json";
 		$v = new View;
@@ -24,6 +26,7 @@
 			. "<p>";
 		}
 		?>
+		</div>
 		<div id="footer">
 		</div>
 	</body>
