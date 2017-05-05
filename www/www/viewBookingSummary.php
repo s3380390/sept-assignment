@@ -1,10 +1,9 @@
 <?php
-include_once("../lib/JSONHandler.php");
+include_once("config.php");
 	
-$db = "../database/booking.json";
 $v = new Summary;
 //check if database is in correct format and display in table view
-if (!$v->viewFunction($db, $summary)){
+if (!$v->viewFunction($database["bookings"], $summary)){
 	echo "<p>"
 	. ""
 	. "<p>";
