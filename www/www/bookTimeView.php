@@ -1,5 +1,5 @@
 <?php
-include_once("../lib/JSONHandler.php");
+include_once("config.php");
 
 class View{
 	public function viewFunction($employeeDatabase, $companyDatabase, $booking, $userType, $userName){

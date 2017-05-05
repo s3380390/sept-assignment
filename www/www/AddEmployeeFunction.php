@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../lib/JSONHandler.php");
+include_once("config.php");
 	
 	$l = new AddEmployeeFunctions;
 	if($l->addEmployee($_POST["firstname"], $_POST["lastname"], $_POST["gender"], 

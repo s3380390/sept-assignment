@@ -1,6 +1,7 @@
 <?php
 	session_start(); 
 	include_once('bookTimeView.php'); 
+	include_once("config.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,8 +17,8 @@
 		<?php 
 		echo "<div class=\"bluebutton\"><a href=\"" . $_SESSION["UserType"] . "Home.html\">Home</a></div>";
 		$booking=true;
-		$employeeDatabase = "../database/employees.json";
-		$companyDatabase = "../database/owners.json";
+		$employeeDatabase = $database["employees"];
+		$companyDatabase = $database["owners"];
 		$v = new View;
 		if ($_SESSION["UserType"] == "Customer"){
 			$userName = $_SESSION["Name"];

@@ -1,10 +1,10 @@
 <?php 
 	session_start();
-	include_once("../lib/JSONHandler.php");
+	include_once("config.php");
 	$jh = new JSONHandler();
 
 	// testing variables
-	$empdatabase = $jh->getFileContents("../database/employees.json");
+	$empdatabase = $jh->getFileContents($database["employees"]);
 	$employees = [];
 	
 	foreach ($empdatabase as $emprecord)

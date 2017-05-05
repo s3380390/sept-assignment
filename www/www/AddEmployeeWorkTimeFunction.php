@@ -2,8 +2,8 @@
 	session_start();
 
 	include("config.php");
-	//		$worktimedb = "../database/employees.json";
-	$db = $database["employees"];
+	
+	$worktimedb = $database["employees"];
 	$l = new AddEmployeeWorkTimeFunctions;
 	$inputTime = array(
 	"monday" => array(
@@ -41,7 +41,7 @@
 		"midday" => $_POST["sunNoon"],
 		"afternoon" => $_POST["sunAfternoon"],
     	"night" => $_POST["sunEvening"]));
-	if($reason = $l->addWorkTimes($db, $_POST["name"], $inputTime)=="success")
+	if($reason = $l->addWorkTimes($worktimedb, $_POST["name"], $inputTime)=="success")
 	{	
 		$log->addInfo("Employee " . $_POST["name"] . " work time added successfully" );
 		header("Location: addWorkTimeConfirmation.html");
