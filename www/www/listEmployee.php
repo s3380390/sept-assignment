@@ -15,6 +15,7 @@ class ListEmployee{
 		$newline = "\r\n";
 		if (!empty($employeeArray = $j->getFileContents($db))){
 			foreach ($employeeArray as $employee){
+				//checking if all employee details are present
 				if (empty($employee["name"])
 				|| empty($employee["gender"])
 				|| empty($employee["address"])
