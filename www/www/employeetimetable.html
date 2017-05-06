@@ -29,6 +29,7 @@
 		<div class="div50 bluebutton" style="text-align:left;">
 			<a href="OwnerHome.html">Home</a>
 		</div>
+		<!-- key  to show employee availability -->
 		<div class="daylegend">
 			<div class="legenditem" >
 				<div>Legend:</div>
@@ -88,13 +89,14 @@
 		echo($t4 . "<div id=\"" . $i . "\"class=\"clearfix employeegroup\">\n");
 		$i++;
 		
+                //looping through employee work times to view their availabilty
 		foreach ($employee["workingtimes"] as $key => $workingtime){
 			
 			echo($t4 . "\t<div class=\"clearfix daygroup\">\n");
 			echo($t4 . "\t\t<div class=\"daybox\"><label>". ucfirst($key) ."</label></div>\n");
 			
 			foreach ($workingtime as $wt){
-				
+				//checking status of each employee work session 
 				if ($wt["booked"] == true){
 					$day = "booked";
 				}
