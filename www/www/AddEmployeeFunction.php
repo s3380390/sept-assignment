@@ -3,8 +3,10 @@ session_start();
 include_once("config.php");
 	
 	$l = new AddEmployeeFunctions;
+        //checking if required data was entered and is available
 	if($l->addEmployee($_POST["firstname"], $_POST["lastname"], $_POST["gender"], 
 				$_POST["contact"], $_POST["address"])==true){
+		//redirected to confrimation page if data is available
 		header("Location: addEmployeeConfirmation.html");
 	} else {
 		header("Location: addEmployee.html");
@@ -16,7 +18,7 @@ class AddEmployeeFunctions{
 		$employeedb = "../database/employees.json";
 		$data = array("company" => $_SESSION['UserName'], "name" => $firstname." ".$lastname, "gender" => $gender,
 							"address" => $address, "phoneno" => $contact, "workingtimes" => 
-									["monday" => 
+									["monday" =>  //initialising new employee work times
 										["morning" => ["working" => false, "booked" => false],
 										 "midday" => ["working" => false, "booked" => false],
 										 "afternoon" => ["working" => false, "booked" => false],
