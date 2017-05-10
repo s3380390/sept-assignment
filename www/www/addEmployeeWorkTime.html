@@ -54,15 +54,24 @@
 			?>;
 			var select = document.getElementById("employee");
 			var employee = select.options[select.selectedIndex].value;
+			const BOOKED_OPTION = 2;
 			name.pop();
 
 			for (i = 0; i<name.length; i++){
 				if (name[i] == employee){
 					for (j = 0; j<book[i].length; j++){
+						var selectElement = document.getElementById(j.toString());
 						if (book[i][j]){
-							document.getElementById(j.toString()).disabled=true;
+							var option = document.createElement("option");
+							option.text = "Booked";
+							selectElement.add(option);
+							selectElement.selectedIndex = BOOKED_OPTION;
+
+							selectElement.disabled=true;
 						} else {
-							document.getElementById(j.toString()).disabled=false;
+							selectElement.remove(BOOKED_OPTION);
+
+							selectElement.disabled=false;
 						}
 					}
 				}
