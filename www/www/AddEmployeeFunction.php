@@ -1,16 +1,5 @@
 <?php
-session_start();
 include_once("config.php");
-	
-	$l = new AddEmployeeFunctions;
-        //checking if required data was entered and is available
-	if($l->addEmployee($_POST["firstname"], $_POST["lastname"], $_POST["gender"], 
-				$_POST["contact"], $_POST["address"])==true){
-		//redirected to confrimation page if data is available
-		header("Location: addEmployeeConfirmation.html");
-	} else {
-		header("Location: addEmployee.html");
-	}
 	
 class AddEmployeeFunctions{
 	public function addEmployee($firstname, $lastname, $gender, $address, $contact){
