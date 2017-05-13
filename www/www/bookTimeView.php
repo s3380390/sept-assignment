@@ -69,7 +69,7 @@ class View{
 		. "$f_tab<p>"
 		. "{$employee["name"]}"
 		. "<p>$newline";
-		echo "$f_tab<table>$newline$s_tab<tr>$newline" 
+		echo "$f_tab<table style='width:100%;'>$newline$s_tab<tr>$newline" 
 		. "$t_tab<th></th>$newline"
 		. "$t_tab<th>Morning</th>$newline "
 		. "$t_tab<th>Mid Day</th>$newline"
@@ -77,7 +77,7 @@ class View{
 		. "$t_tab<th>Night</th>$newline$s_tab</tr>$newline";
 		foreach ($employee["workingtimes"] as $dkey => $day){
 			echo "$s_tab<tr>$newline"
-				. "$t_tab<td style=\"font-weight: bold\">$dkey</td>$newline";
+				. "$t_tab<td style=\"font-weight: bold\">" . ucfirst($dkey) . "</td>$newline";
 			foreach ($day as $skey => $shift){
 				echo "$t_tab<td>";
 				if (!$shift["working"]){
@@ -89,7 +89,7 @@ class View{
 						} else {
 							if (!empty($customerName)
 							&& !empty($bookDetail = $this->checkBookingCustomer($employee, $dkey, $skey, $customerName))){
-								echo "$newline$t_tab<form action='ViewBookingDetail.html' method='post'>"
+								echo "$newline$t_tab<form class='bookingform' action='ViewBookingDetail.html' method='post'>"
 								. "$newline$t_tab\t<input type='submit' name='" 
 									. $bookDetail["company"] . "||" . $bookDetail["employee"] . "||" . $dkey . "||" . $skey . "||" . $customerName . "||" . $bookDetail["description"] . "' value='View'>"
 								. "$newline$t_tab</form>";
@@ -99,7 +99,7 @@ class View{
 						if (!$booking){
 							echo "Not Booked";
 						} else {
-							echo "$newline$t_tab<form action='BookingDetail.html' method='post'>"
+							echo "$newline$t_tab<form class='bookingform' action='BookingDetail.html' method='post'>"
 							. "$newline$t_tab\t<input type='submit' name='" 
 								. $employee["company"] . "||" . $employee["name"] . "||" . $dkey . "||" . $skey . "' value='Book'>"
 							. "$newline$t_tab</form>";
