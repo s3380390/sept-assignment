@@ -1,5 +1,6 @@
 <?php
-	session_start(); 
+	session_start();
+	include_once('config.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,32 +19,39 @@
 		</div>
 		<a href="Booking.html">Back</a>
 		<?php
+		$t3 = "\t\t\t";
 		echo "<form action ='BookingResult.html' ";
 		if ($_SESSION["UserType"]=="Owner"){
 			echo "onsubmit=\"return formValidate();\" ";
 		}
 		echo "method='post'>\r\n";
-		echo "<div class=\"container\">";
+		echo "$t3<div class=\"container\">\n";
 		if ($_SESSION["UserType"]=="Owner"){
-			echo "\t\t\t<p>Customer:"
-				. "<input type='text' name='customer' placeholder='Customer Name' required/>\r\n"
-				. "\t\t\t<span class='error' id='cNameError'></span></p>\r\n";
+			$jh = new JSONHandler();
+			$customers = $jh->getFileContents($database['customers']);
+			
+			echo "$t3\tCustomer:<br />\n";
+			echo "$t3\t<select name='customer'>\n";
+			foreach ($customers as $customer) {
+				echo "$t3\t\t<option value='" . $customer['name'] . "'>" . $customer['name'] . "</option>\n";
+			}
+			echo "$t3\t</select>\n";
 		}
 		?>
-			<p>
-				Description:
-				<br>
-				<textarea id='desc' name='description' placeholder='Description'></textarea>
-				<br>
-			</p>
-			<?php 
-			echo "<button type='submit' name='" . array_shift(array_keys($_POST)) . "||";
-			if ($_SESSION["UserType"]=="Customer"){
-				echo $_SESSION["Name"];
-			}
-			echo "'>Book</button>"; 
-			unset($_POST);
-			?>
+				<p>
+					Description:
+					<br>
+					<textarea id='desc' name='description' placeholder='Description'></textarea>
+					<br>
+				</p>
+				<?php 
+				echo "<button type='submit' name='" . array_shift(array_keys($_POST)) . "||";
+				if ($_SESSION["UserType"]=="Customer"){
+					echo $_SESSION["Name"];
+				}
+				echo "'>Book</button>\n"; 
+				unset($_POST);
+				?>
 			</div>
 		</form>
 		<div id="footer">
