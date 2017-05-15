@@ -1,0 +1,116 @@
+<?php 
+	session_start();
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Business Owner Sign Up</title>
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<script src="scripts/registerValidation.js"></script>
+	</head>
+	<body>
+		<div id="header">
+		</div>
+		<!--Creating sign up form-->
+		<form action ='SignUpFunction.php' method='post' >
+			<!--creating a container for the form-->
+			<div class="container">
+				<h1> Registering Your Business </h1>
+				<!--validating form input-->
+				<?php
+				if (isset($_SESSION["format"])){
+					echo "<p>Wrong password format<p>";
+				}
+				if (isset($_SESSION["samePwd"])){
+					echo "<p>Confirm password is not the same as password<p>";
+				}
+				if (isset($_SESSION["sameUserName"])){
+					echo "<p>User name already exists<p>";
+				}
+				session_destroy();
+				?>
+				<!--class div50 used to style smaller form fields-->
+				<div class="div50">
+					<label>First Name</label>
+					<input type='text' name='firstname' placeholder='John' required/>
+				</div>
+				<div class="div50">
+					<label>Last Name</label>
+					<input type='text' name='lastname' placeholder='Smith' required/>
+				</div>
+				<label>Name Of Your Business</label>
+				<input type='text' name='businessname' placeholder='Business Name' required/>
+				<!--class clearfix used to move next form element below the previous one-->
+				<div class="clearfix"></div>
+				<hr />
+					<label>Username</label>
+					<input type='text' name='username' placeholder='johnsmith1' required/>
+				<div class="div50">
+					<label>Password</label>
+					<input type='password' name='password1' required/>
+				</div>
+				<div class="div50">
+					<label>Confirm Password</label>
+					<input type = 'password' name='password2' required/>
+				</div>
+				<div class="clearfix"></div>
+				<hr />
+				<label>Contact Number</label>
+				<input type='text' name='contact' placeholder='0412345678' required/>
+				<label>Address</label>
+				<input type='text' name='address' value='' required/>
+				<button type='submit' name='btn-register'>Submit</button><br />
+				<!--link taking registered users to login page-->
+				<span style="margin-top:20px;">Already registered? - <a href="login.html">Sign In</a></span>
+			</div>
+		</form>
+		<div id="footer">
+		</div>
+	</body>
+</html>
+<script>
+	$(document).ready(function(){
+		
+		// on form submit runs validation
+		$("form").submit(function(){
+			
+			if (validateForm())
+				return true;
+			else
+				return false;
+		});
+		
+		// on password confirm change checks to see if passwords match
+		$("input[name='password2']").focusout(function(){
+			validatePasswordsMatch();
+		});
+		
+		// on password 1 focus out presents password errors
+		$("input[name='password1']").focusout(function(){
+			validatePass();
+			if ($("input[name='password2'").val()) {
+				validatePasswordsMatch();
+			}
+		});
+		
+		//running functions that validate each form field
+		$("input[name='contact']").focusout(function(){
+			validatePhone();
+		});
+		
+		$("input[name='username']").focusout(function(){
+			validateUsername();
+		});
+		
+		$("input[name='firstname']").focusout(function(){
+			validateFirstname();
+		});
+		
+		$("input[name='lastname']").focusout(function(){
+			validateLastname();
+		});
+		
+	});
+</script>
