@@ -1,19 +1,15 @@
 <?php
 	session_start();
-	if (!empty($_POST)){
-		$_SESSION["GUI"] = $_POST;
-		unset($_POST);
-	}
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title><?php
-		if (empty($_SESSION["GUI"])){
+		if (empty($_SESSION["GUI"]["title"])){
 			echo "Home Page";
 		} else {
-			echo $_SESSION["GUI"]["header"];
+			echo $_SESSION["GUI"]["title"];
 		}
 		?></title>
 		<link rel="stylesheet" type="text/css" href="styles/style.css">
@@ -22,7 +18,12 @@
 		<div id="header">
 		</div>
 		<div class="homemenu">
-			<h1><?php echo 'Welcome ' . $_SESSION["BusinessName"] ?></h1>
+			<h1><?php 
+				if (empty($_SESSION["GUI"]["header"])){
+					echo 'Welcome ' . $_SESSION["BusinessName"];
+				 } else {
+					echo $_SESSION["GUI"]["header"];
+				 } ?></h1>
 			<hr/>
 			<a href="editHome.html">Edit home page</a><br />
 			<a href="addEmployee.html">Add Employee</a><br />

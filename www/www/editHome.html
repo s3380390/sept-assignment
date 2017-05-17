@@ -20,16 +20,31 @@
 		<form action ='editHome.html' onsubmit='return formValidate();' method='post'>
 			<div class=\"container\">
 			<p>
+				Change title:
+				<br>
+				<?php
+				echo "<input type='text' name='title' value=\"";
+				if (empty($_SESSION["GUI"]["title"])){
+					echo "Home Page";
+				} else {
+					echo $_SESSION["GUI"]["title"];
+				}
+				echo "\">";
+				?>
+				<br>
+				<span class='error' id='titleError'></span>
+			</p>
+			<p>
 				Change header:
 				<br>
 				<?php
 				echo "<input type='text' name='header' value=\"";
 				if (empty($_SESSION["GUI"]["header"])){
-					echo "Home Page";
+					echo "Welcome " . $_SESSION["BusinessName"];
 				} else {
 					echo $_SESSION["GUI"]["header"];
 				}
-				echo "\"></textarea>";
+				echo "\">";
 				?>
 				<br>
 				<span class='error' id='headerError'></span>
