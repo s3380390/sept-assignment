@@ -13,14 +13,15 @@ function clearErrors()
 	}
 }
 
-function nameCheck(){
-	var name = document.getElementsByName('customer')[0].value.trim();
-	var names = name.replace(/\s+/g, " ").split(" ");
-	var patt = /^[A-Za-z]+[.'\-]?[a-zA-Z]*$/;
-	for (var i=0; i < names.length;i++){
-		if (!patt.test(names[i])) {
-			document.getElementById('cNameError').innerHTML='<br>Please enter only Alphabets, spaces and punctuation characters';
-			document.getElementsByName('customer')[0].style.backgroundColor='#f00';
+function headerCheck(){
+	var header = document.getElementsByName('header')[0].value.trim();
+	//splitting the header into words
+	var headerWords = header.replace(/\s+/g, " ").split(" ");
+	var patt = /^[A-Za-z]+[.\'\-]?[a-zA-Z]*$/;
+	for (var i=0; i < headerWords.length;i++){
+		if (!patt.test(headerWords[i])) {
+			document.getElementById('headerError').innerHTML='<br>Please enter only Alphabets, spaces and punctuation characters';
+			document.getElementsByName('header')[0].style.backgroundColor='#f00';
 			return false;
 		}
 	}
@@ -30,8 +31,9 @@ function nameCheck(){
 function formValidate() {
 	// clear all errors, even if it's the first run
 	clearErrors();
+	console.log("LOL");
 	// Block or allow submission
-	if (!nameCheck()){
+	if (!headerCheck()){
 		return false;
 	}
 	return true;
