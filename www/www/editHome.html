@@ -1,0 +1,44 @@
+<?php
+	session_start();
+	if (!empty($_POST)){
+		$_SESSION["GUI"] = $_POST;
+		unset($_POST);
+		header("Location: OwnerHome.html");
+	}
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Editing</title>
+		<link rel="stylesheet" type="text/css" href="styles/style.css">	
+		<script type="text/javascript" src="scripts/booking.js"></script>
+	</head>
+	<body>
+		<div id="header">
+		</div>
+		<form action ='editHome.html' onsubmit='return formValidate();' method='post'>
+			<div class=\"container\">
+			<p>
+				Change header:
+				<br>
+				<?php
+				echo "<input type='text' name='header' value=\"";
+				if (empty($_SESSION["GUI"]["header"])){
+					echo "Home Page";
+				} else {
+					echo $_SESSION["GUI"]["header"];
+				}
+				echo "\"></textarea>";
+				?>
+				<br>
+				<span class='error' id='headerError'></span>
+			</p>
+			<button type='submit'>Confirm</button><br/>
+			</div>
+		</form>
+		<div id="footer">
+		</div>
+	</body>
+</html>
+
