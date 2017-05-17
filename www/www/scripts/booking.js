@@ -20,8 +20,23 @@ function headerCheck(){
 	var patt = /^[A-Za-z]+[.\'\-]?[a-zA-Z]*$/;
 	for (var i=0; i < headerWords.length;i++){
 		if (!patt.test(headerWords[i])) {
-			document.getElementById('headerError').innerHTML='<br>Please enter only Alphabets, spaces and punctuation characters';
+			document.getElementById('headerError').innerHTML='<br>Please enter only Alphabets, spaces, single quotes and punctuation characters';
 			document.getElementsByName('header')[0].style.backgroundColor='#f00';
+			return false;
+		}
+	}
+	return true;
+}
+
+function titleCheck(){
+	var title = document.getElementsByName('title')[0].value.trim();
+	//splitting the title into words
+	var titleWords = title.replace(/\s+/g, " ").split(" ");
+	var patt = /^[A-Za-z]+[.\'\-]?[a-zA-Z]*$/;
+	for (var i=0; i < titleWords.length;i++){
+		if (!patt.test(titleWords[i])) {
+			document.getElementById('titleError').innerHTML='<br>Please enter only Alphabets, spaces, single quotes and punctuation characters';
+			document.getElementsByName('title')[0].style.backgroundColor='#f00';
 			return false;
 		}
 	}
@@ -34,6 +49,9 @@ function formValidate() {
 	console.log("LOL");
 	// Block or allow submission
 	if (!headerCheck()){
+		return false;
+	}
+	if (!titleCheck()){
 		return false;
 	}
 	return true;
