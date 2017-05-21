@@ -41,7 +41,7 @@ class View{
 						return true;
 					}
 					
-					echo "\r\n\t\t<details>\r\n\t\t<summary>" . key($database) . "</summary>";
+					echo "\r\n\t\t<details>\r\n\t\t<summary>" . /*key($database)*/ $owner['businessname'] . "</summary>";
 					foreach ($database as $companyName => $employees){
 						foreach ($employees as $employeeName){
 							foreach ($viewArray as $employee){
@@ -51,7 +51,7 @@ class View{
 							}
 						}
 					}
-					echo "\t\t</details>\r\n";
+					echo "\t\t</details><br />\r\n";
 				}
 			}
 			return true;
@@ -93,6 +93,9 @@ class View{
 								. "$newline$t_tab\t<input type='submit' name='" 
 									. $bookDetail["company"] . "||" . $bookDetail["employee"] . "||" . $dkey . "||" . $skey . "||" . $customerName . "||" . $bookDetail["description"] . "' value='View'>"
 								. "$newline$t_tab</form>";
+							}
+							else {
+								echo "Booked";
 							}
 						}
 					} else {
