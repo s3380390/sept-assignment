@@ -1,19 +1,39 @@
 <?php
 	session_start(); 
+	include_once('bookTimeView.php'); 
+	include_once("config.php");
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Booking Result</title>
+		<title>Booking</title>
 		<link rel="stylesheet" type="text/css" href="styles/style.css">
 	</head>
 	<body>
 		<div id="header">
 		</div>
-		<a href="CustomerHome.html">Home</a>
-		<?php include_once('booking.php'); //unset($_POST);
+		<div class="homemenu">
+		<?php 
+		echo "<div class=\"bluebutton\"><a href=\"" . $_SESSION["UserType"] . "Home.html\">Home</a></div>";
+		$booking=true;
+		$employeeDatabase = $database["employees"];
+		$companyDatabase = $database["owners"];
+		$v = new View;
+		if ($_SESSION["UserType"] == "Customer"){
+			$userName = $_SESSION["Name"];
+		} else {
+			$userName = $_SESSION["UserName"];
+		}
+		//check if database is in correct format and display in table view
+		if (!$v->viewFunction($employeeDatabase, $companyDatabase, $booking, $_SESSION["UserType"], $userName)){
+			echo "<p>"
+			. "Booking time file is either not found or corrupted"
+			. "<p>";
+		}
+
 		?>
+		</div>
 		<div id="footer">
 		</div>
 	</body>

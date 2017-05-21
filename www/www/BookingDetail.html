@@ -1,0 +1,52 @@
+<?php
+	session_start();
+	include_once('config.php');
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Booking Detail</title>
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+	</head>
+	<body>
+		<div id="header">
+		</div>
+		<a href="Booking.html">Back</a>
+		<?php
+		$t3 = "\t\t\t";
+		echo "<form action ='BookingResult.html' method='post'>\r\n";
+		echo "$t3<div class=\"container\">\n";
+		if ($_SESSION["UserType"]=="Owner"){
+			$jh = new JSONHandler();
+			$customers = $jh->getFileContents($database['customers']);
+			
+			echo "$t3\tCustomer:<br />\n";
+			echo "$t3\t<select name='customer'>\n";
+			foreach ($customers as $customer) {
+				echo "$t3\t\t<option value='" . $customer['name'] . "'>" . $customer['name'] . "</option>\n";
+			}
+			echo "$t3\t</select>\n";
+		}
+		?>
+				<p>
+					Description:
+					<br>
+					<textarea name='description' placeholder='Description'></textarea>
+					<br>
+				</p>
+				<?php 
+				echo "<button type='submit' name='" . array_shift(array_keys($_POST)) . "||";
+				if ($_SESSION["UserType"]=="Customer"){
+					echo $_SESSION["Name"];
+				}
+				echo "'>Book</button>\n"; 
+				unset($_POST);
+				?>
+			</div>
+		</form>
+		<div id="footer">
+		</div>
+	</body>
+</html>
+

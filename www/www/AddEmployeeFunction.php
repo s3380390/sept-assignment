@@ -1,14 +1,5 @@
 <?php
-session_start();
-include("../lib/JSONHandler.php");
-	
-	$l = new AddEmployeeFunctions;
-	if($l->addEmployee($_POST["firstname"], $_POST["lastname"], $_POST["gender"], 
-				$_POST["contact"], $_POST["address"])==true){
-		header("Location: addEmployeeConfirmation.html");
-	} else {
-		header("Location: addEmployee.html");
-	}
+include_once("config.php");
 	
 class AddEmployeeFunctions{
 	public function addEmployee($firstname, $lastname, $gender, $address, $contact){
@@ -16,7 +7,7 @@ class AddEmployeeFunctions{
 		$employeedb = "../database/employees.json";
 		$data = array("company" => $_SESSION['UserName'], "name" => $firstname." ".$lastname, "gender" => $gender,
 							"address" => $address, "phoneno" => $contact, "workingtimes" => 
-									["monday" => 
+									["monday" =>  //initialising new employee work times
 										["morning" => ["working" => false, "booked" => false],
 										 "midday" => ["working" => false, "booked" => false],
 										 "afternoon" => ["working" => false, "booked" => false],

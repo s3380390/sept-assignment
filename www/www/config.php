@@ -1,10 +1,13 @@
 <?php
 
-	spl_autoload_register(function ($class) {
+	/*spl_autoload_register(function ($class) {
 		$file = '../lib/' . strtr($class, '\\', '/') . '.php';
 		require $file;
 		return true;
-	});
+	});*/
+	
+	require_once('../lib/JSONHandler.php');
+	require_once('../vendor/autoload.php');
 	
 	use Monolog\Logger;
 	use Monolog\Handler\StreamHandler;

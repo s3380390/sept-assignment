@@ -1,10 +1,10 @@
 <?php 
 	session_start();
-	include_once("../lib/JSONHandler.php");
+	include_once("config.php");
 	$jh = new JSONHandler();
 
 	// testing variables
-	$empdatabase = $jh->getFileContents("../database/employees.json");
+	$empdatabase = $jh->getFileContents($database["employees"]);
 	$employees = [];
 	
 	foreach ($empdatabase as $emprecord)
@@ -25,11 +25,15 @@
 	</head>
 	<div id="header" style="height:20px;">
 	</div>
-	<a href="OwnerHome.html">Back to owner page</a>
-	<div class="container">
-		<div class="div50"></div>
+	<div class="timetablecontainer">
+		<div class="div50 bluebutton" style="text-align:left;">
+			<a href="OwnerHome.html">Home</a>
+		</div>
+		<!-- key  to show employee availability -->
 		<div class="daylegend">
-			<div class="legenditem" >Legend</div>
+			<div class="legenditem" >
+				<div>Legend:</div>
+			</div>
 			<div class="legenditem">
 				<div class="rostered">Rostered</div>
 			</div>
@@ -39,74 +43,79 @@
 			<div class="legenditem">
 				<div class="free">Free</div>
 			</div>
+		</div>
+		<div class="clearfix"></div>
+		<div style="text-align:left;"><h2>Pick an employee:</h2></div>
+		<div class="tabbar">
+<?php 
+	$i = 0;
+	$t3 = "\t\t\t";
+	foreach ($employees as $employee)
+	{
+		echo($t3 . "<button class=\"tabbutton\" onclick=\"openEmployee(" . $i . ")\">" . $employee["name"] . "</button>\n");
+		$i++;
+	}
+	if (count($employees) == 0){
+		echo("You have no workers to display");
+	}
+?>
 			<div class="clearfix"></div>
 		</div>
-		<div class="clearfix"><h2>Pick an employee:</h2></div>
-		<div class="clearfix tabbar">
-			<?php 
-				$i = 0;
-				foreach ($employees as $employee)
-				{
-					echo("<button class=\"tabbutton\" onclick=\"openEmployee(" . $i . ")\">" . $employee["name"] . "</button>");
-					$i++;
-				}
-				if (count($employees) == 0){
-					echo("You have no workers to display");
-				}
-			?>
-			
-			<div class="clearfix"></div>
-		</div>
+		<br />
 		<div class ="tabpane" style="width:100%">
 			<div class="container">
-				<div class="clearfix daygroup">
+				<div class="daygroup">
 					<div class="daybox">
-						<label>Day</label>
 					</div>
 					<div class="daybox">
-						<label>Morning (9am - 11am)</label>
+						<label>Morning <br />(9am - 11am)</label>
 					</div>
 					<div class="daybox">
-						<label>Midday (11am - 1pm)</label>
+						<label>Midday <br />(11am - 1pm)</label>
 					</div>
 					<div class="daybox">
-						<label>Afternoon (1pm - 3pm)</label>
+						<label>Afternoon <br />(1pm - 3pm)</label>
 					</div>
 					<div class="daybox">
-						<label>Night (3pm - 5pm)</label>
+						<label>Night <br />(3pm - 5pm)</label>
 					</div>
-				</div>	
-				<?php
-					$i = 0;
-					foreach ($employees as $employee) {
-						echo("<div id=\"" . $i . "\"class=\"clearfix employeegroup\">");
-						$i++;
-						
-						foreach ($employee["workingtimes"] as $key => $workingtime){
-							
-							echo("<div class=\"clearfix daygroup\">");
-							echo("<div class=\"daybox\"><label>". ucfirst($key) ."</label></div>");
-							
-							foreach ($workingtime as $wt){
-								
-								if ($wt["booked"] == true){
-									$day = "booked";
-								}
-								elseif ($wt["working"] == true){
-									$day = "rostered";
-								}
-								else {
-									$day = "free";
-								}
-								
-								echo("<div class=\"daybox\"><div class=\"work " . $day . "\"></div></div>");
-							}
-							
-							echo("</div>");
-						}
-						echo("</div>");
-					}
-				?>
+				</div>
+				<div class="clearfix"></div>
+				<hr />
+<?php
+	$i = 0;
+	$t4 = "\t\t\t\t";
+	foreach ($employees as $employee) {
+		echo($t4 . "<div id=\"" . $i . "\"class=\"clearfix employeegroup\">\n");
+		$i++;
+		
+                //looping through employee work times to view their availabilty
+		foreach ($employee["workingtimes"] as $key => $workingtime){
+			
+			echo($t4 . "\t<div class=\"clearfix daygroup\">\n");
+			echo($t4 . "\t\t<div class=\"daybox\"><label>". ucfirst($key) ."</label></div>\n");
+			
+			foreach ($workingtime as $wt){
+				//checking status of each employee work session 
+				if ($wt["booked"] == true){
+					$day = "booked";
+				}
+				elseif ($wt["working"] == true){
+					$day = "rostered";
+				}
+				else {
+					$day = "free";
+				}
+				
+				echo($t4 . "\t\t<div class=\"daybox\"><div class=\"work " . $day . "\"></div></div>\n");
+			}
+			
+			echo($t4 . "\t</div>\n");
+		}
+		echo($t4 . "</div>\n");
+	}
+	echo($t4 . "<div class=\"clearfix\"></div>\n");
+?>
 			</div>
 		</div>
 	</div>

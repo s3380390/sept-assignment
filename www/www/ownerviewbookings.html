@@ -1,0 +1,55 @@
+<?php
+	session_start();
+	include('config.php');
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Home Page</title>
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+	</head>
+	<body>
+		<div id="header">
+		</div>
+		<div class='homemenu'>
+			<a href='OwnerHome.html'>Home</a><br />
+<?php
+	$db = $database["bookings"];
+	$jh = new JSONHandler;
+	$counter = 1;
+	$t3 = "\t\t\t";
+	
+	$bookingdb = $jh->getFileContents($db);
+	
+	foreach ($bookingdb as $booking){
+		if ($booking["company"] == $_SESSION["UserName"]){
+			echo "$t3<div class=\"bookingelement\">\n";
+			echo "$t3<br />\n";
+			echo "$t3\t<table style=\"width:80%;margin:auto;\">\n";
+			echo "$t3\t\t<tr><td style=\"width:40%;\">Booking no.</td><td>$counter</td></tr>\n";
+			echo "$t3\t\t<tr><td style=\"width:40%;\">Employee</td><td>". $booking["employee"] ."</td></tr>\n";
+			echo "$t3\t\t<tr><td style=\"width:40%;\">Day</td><td>". ucfirst($booking["day"]) ."</td></tr>\n";
+			echo "$t3\t\t<tr><td style=\"width:40%;\">Time</td><td>". ucfirst($booking["shift"]) ."</td></tr>\n";
+			echo "$t3\t\t<tr><td style=\"width:40%;\">Customer</td><td>". $booking["customer"] ."</td></tr>\n";
+			echo "$t3\t\t<tr><td style=\"width:40%;\">Description</td><td>". $booking["description"] ."</td></tr>\n";
+			echo "$t3\t<table>\n";
+			/*
+			echo "$t3\t<span>Booking no.: $counter</span>\n";
+			echo "$t3\t<span>Employee: ". $booking["employee"] ."</span><br />\n";
+			echo "$t3\t<span>Customer: ". $booking["customer"] ."</span><br />\n";
+			echo "$t3\t<span>Day: ". ucfirst($booking["day"]) ."</span><br />\n";
+			echo "$t3\t<span>Time: ". ucfirst($booking["shift"]) ."</span><br />\n";
+			echo "$t3\t<span>Description: ". $booking["description"] ."</span><br />\n";*/
+			echo "$t3</div>\n";
+			echo "$t3<br />\n";
+			$counter++;
+		}
+	}
+?>
+		</div>
+		<div id="footer">
+		</div>
+	</body>
+</html>
+

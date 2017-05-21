@@ -1,10 +1,9 @@
 <?php
-include_once("../lib/JSONHandler.php");
+include_once("config.php");
 
-$db = "../database/employees.json";
 $l = new ListEmployee;
 //check if the database is correct
-if (!$l->listFunction($db)){
+if (!$l->listFunction($database["employees"])){
 	//return to homepage if database is not
 	header('Location: OwnerHome.html');
 }
@@ -16,6 +15,7 @@ class ListEmployee{
 		$newline = "\r\n";
 		if (!empty($employeeArray = $j->getFileContents($db))){
 			foreach ($employeeArray as $employee){
+				//checking if all employee details are present
 				if (empty($employee["name"])
 				|| empty($employee["gender"])
 				|| empty($employee["address"])

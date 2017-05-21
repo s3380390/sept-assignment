@@ -1,0 +1,32 @@
+<?php 
+	session_start();
+	include_once("config.php");
+	include_once('viewBookingSummary.php'); 
+?>
+	
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Summary of Bookings</title>
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+	</head>
+	<body>
+		<div id="header">
+		</div>
+		<a href="CustomerHome.html">Home</a>
+		<h1>Here is the list of bookings for your company: </h1>
+		<?php 
+		$summary=false;
+		$v = new Summary;
+		//check if database is in correct format and display in table view
+		if (!$v->viewFunction($database["bookings"], $summary)){
+			echo "<p>"
+			. ""
+			. "<p>";
+		}
+		?>
+		<div id="footer">
+		</div>
+	</body>
+</html>

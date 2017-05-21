@@ -1,0 +1,57 @@
+<?php
+	session_start(); 
+	include_once("config.php");
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Booking Detail</title>
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+	</head>
+	<body>
+		<div id="header">
+		</div>
+		<div class="homemenu">
+			<div class="bluebutton"><a href="CustomerHome.html">Home</a></div>
+			<?php 
+				$t3 = "\t\t\t";
+				$counter = 1;
+				
+				$j = new JSONHandler();
+				$bookingdb = $j->getFileContents($database['bookings']);
+				$businessdb = $j->getFileContents($database['owners']);
+				
+				// gets the business names for nicer presentation
+				$businessNames = array();
+				foreach ($businessdb as $business)
+				{
+					$businessNames[$business['username']] = $business['businessname'];
+				}
+				
+				// prints out the bookings
+				foreach ($bookingdb as $booking)
+				{
+					if ($booking["customer"] == $_SESSION["Name"])
+					{
+						echo "<div class=\"bookingelement\"><br />\n";
+						echo "$t3\t<table style=\"width:80%;margin:auto;\">\n";
+						echo "$t3\t\t<tr><td style=\"width:40%;\">Booking no.</td><td>$counter</td></tr>\n";
+						echo "$t3\t\t<tr><td style=\"width:40%;\">Business</td><td>". $businessNames[$booking['company']] ."</td></tr>\n";
+						echo "$t3\t\t<tr><td style=\"width:40%;\">Employee</td><td>". $booking["employee"] ."</td></tr>\n";
+						echo "$t3\t\t<tr><td style=\"width:40%;\">Day</td><td>". ucfirst($booking["day"]) ."</td></tr>\n";
+						echo "$t3\t\t<tr><td style=\"width:40%;\">Time</td><td>". ucfirst($booking["shift"]) ."</td></tr>\n";
+						echo "$t3\t\t<tr><td style=\"width:40%;\">Description</td><td>". $booking["description"] ."</td></tr>\n";
+						echo "$t3\t<table>\n";
+						echo "$t3</div><br />\n";
+						$counter++;
+					}
+				}
+				
+				//var_dump($_SESSION);
+			?>
+		</div>
+		<div id="footer">
+		</div>
+	</body>
+</html>

@@ -1,21 +1,38 @@
 <?php
-	session_start(); 
+	session_start();
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Home Page</title>
+		<title><?php
+		if (empty($_SESSION["GUI"]["title"])){
+			echo "Home Page";
+		} else {
+			echo $_SESSION["GUI"]["title"];
+		}
+		?></title>
 		<link rel="stylesheet" type="text/css" href="styles/style.css">
 	</head>
 	<body>
 		<div id="header">
 		</div>
-		<h1><?php echo 'Welcome ' . $_SESSION["BusinessName"] ?></h1>
-		<a href="addEmployee.html">Add Employee</a><br />
-		<a href="addEmployeeWorkTime.html">Add Employee Working Times</a><br />
-		<a href="employeetimetable.html">View Working Times</a><br />
-		<a href="LogOut.php">Log Out</a>
+		<div class="homemenu">
+			<h1><?php 
+				if (empty($_SESSION["GUI"]["header"])){
+					echo 'Welcome ' . $_SESSION["BusinessName"];
+				 } else {
+					echo $_SESSION["GUI"]["header"];
+				 } ?></h1>
+			<hr/>
+			<a href="addEmployee.html">Add Employee</a><br />
+			<a href="addEmployeeWorkTime.html">Add Employee Working Times</a><br />
+			<a href="employeetimetable.html">View Working Times</a><br />
+			<a href="Booking.html">Make Booking</a><br>
+			<a href="ownerviewbookings.html">View Bookings</a><br>
+			<a href="editHome.html">Edit home page</a><br />
+			<a href="LogOut.php">Log Out</a>
+		</div>
 		<div id="footer">
 		</div>
 	</body>

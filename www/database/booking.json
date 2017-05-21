@@ -6,5 +6,21 @@
         "day": "monday",
         "shift": "morning",
         "description": null
+    },
+    {
+        "company": "testowner",
+        "employee": "Mike Rock",
+        "customer": "User Testington",
+        "day": "wednesday",
+        "shift": "morning",
+        "description": ""
+    },
+    {
+        "company": "testowner",
+        "employee": "Daniel Random",
+        "customer": "User Testington",
+        "day": "thursday",
+        "shift": "morning",
+        "description": ""
     }
 ]
