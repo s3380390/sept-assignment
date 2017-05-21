@@ -30,13 +30,22 @@
 		} else {
                         //retrieving and displaying booking information
 			$bookingData = $j->getFileContents($bookingdb);
+			$ownerData = $j->getFileContents($database["owners"]);
+			
 			foreach ($bookingData as $bKey => $bookingDetail){
 				if ($bookingDetail["company"] == $b->Company
 				&& $bookingDetail["employee"] == $b->Employee
 				&& $bookingDetail["day"] == $b->BookDay
 				&& $bookingDetail["shift"] == $b->BookShift){
 					foreach ($bookingDetail as $detailKey => $detail){
-						echo "<p>" . $detailKey . ": " . $detail . "</p>\r\n\t\t";
+						if ($detailKey == 'company')
+						{
+							foreach ($ownerData as $company) {
+								if ($company['username'] == $detail)
+									$detail = $company['businessname'];
+							}
+						}
+						echo "<p>" . ucfirst($detailKey) . ": " . ucfirst($detail) . "</p>\r\n\t\t";
 					}
 					break;
 				}
